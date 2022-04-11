@@ -1,10 +1,32 @@
-import React from 'react'
-import { AppContainer } from './components/AppContainer'
+import React from 'react'; 
+import Screens from './pages/Screens/Screens';
+import styled, {createGlobalStyle} from 'styled-components';
 
-function App() {
-	return (
-        <AppContainer />
-	)
+const GlobalStyle = createGlobalStyle`
+* {
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box; 
 }
 
-export default App
+`
+
+
+
+
+export default class App extends React.Component {
+
+	render() {
+
+		return (
+			
+			<div>
+				<GlobalStyle/>
+				<Screens/>
+			</div>
+		)
+
+	}
+	
+}
+
