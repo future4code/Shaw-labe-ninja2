@@ -15,9 +15,6 @@ export default class HomeScreen extends React.Component {
 			<div>
                 <HomeScreenMain/> 
                 <RegisterJob/> 
-
-
-				
 			</div>
 		)
 

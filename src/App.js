@@ -1,6 +1,6 @@
-import React from 'react'; 
+import React from 'react';
 import Screens from './pages/Screens/Screens';
-import styled, {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -8,25 +8,20 @@ const GlobalStyle = createGlobalStyle`
 	padding: 0; 
 	box-sizing: border-box; 
 }
-
 `
-
-
-
-
 export default class App extends React.Component {
 
 	render() {
 
 		return (
-			
+
 			<div>
-				<GlobalStyle/>
-				<Screens/>
+				<GlobalStyle />
+				<Screens />
 			</div>
 		)
 
 	}
-	
+
 }
 
