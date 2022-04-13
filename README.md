@@ -1,3 +1,47 @@
+# Design Proposal LabeNinjas 
+
+__(Encontre o wireframe do projeto no arquivo LabeNinjas-UI.pdf na mesma pasta Markdown do projeto (./src/Markdown )__
+
+## Funcionalidades iniciais
+
+1. Inicial (Landing Page):
+    - Cadastrar Serviço
+    - Contratar Serviço
+
+2. Cadastrar Serviço:
+    - Preencher formulario com Titulo do trabalho, descrição, preço, formas de pagamento (pix, debito, credito ..), prazo
+
+3. Carrinho
+    - Mostrar cards especificos com serviços contratados. 
+
+4. Contratar Serviço (Após ser clicado no botão 'Contratar Serviço' na pagina inicial)
+    - Lista de Serviços (Cards)
+    - Filtros (Campo de busca por nome, preço (min, max), possivelment categoria)
+    - Link para Carrinho
+
+
+
+Fluxograma: 
+
+![image](https://user-images.githubusercontent.com/99181273/163043773-da8c0a40-b75c-43d6-8c5f-cb1927df8348.png)
+
+
+Design Proposal: 
+
+![image](https://user-images.githubusercontent.com/99181273/163043853-0ea8aa51-8334-4ec0-a70b-8e5391b4cd2e.png)
+![image](https://user-images.githubusercontent.com/99181273/163043890-dd37f23a-3e49-4ce0-ba62-0dbda138416a.png)
+![image](https://user-images.githubusercontent.com/99181273/163043931-ee061a9d-0f68-4cf1-be13-f399f080fcd7.png)
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
