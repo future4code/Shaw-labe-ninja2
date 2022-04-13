@@ -1,6 +1,8 @@
 import React from 'react';
 import Screens from './pages/Screens/Screens';
 import { createGlobalStyle } from 'styled-components';
+import theme from './constants/theme';
+import { ThemeProvider } from 'react-jss';
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -17,7 +19,9 @@ export default class App extends React.Component {
 
 			<div>
 				<GlobalStyle />
+				<ThemeProvider theme={theme}>
 				<Screens />
+				</ThemeProvider>
 			</div>
 		)
 
