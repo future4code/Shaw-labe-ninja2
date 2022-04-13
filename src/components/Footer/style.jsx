@@ -11,7 +11,6 @@ export const FooterContainer = styled.div`
 `
 
 export const LogoContainer = styled.div`
-    /* background-color: blue; //mudar depois */
     display: flex;
     justify-content: center;
     align-items: center;
