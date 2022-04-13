@@ -58,7 +58,7 @@ export default class RegisterJob extends React.Component {
 		})
 		// ============================================================
 		// VER AQUI O CREATE JOB
-		//createJob(this.state.inputTitle, this.state.inputImage, this.state.inputDescription, this.state.inputPrice, options, this.state.inputDueDate)
+
 		
 	}
 	render() {

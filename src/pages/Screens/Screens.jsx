@@ -11,6 +11,7 @@ import Header from '../../components/Header/Header';
 //TELAS HOMESCREEN (PRINCIPAL)
 //      CART (CARRINHO)
 
+
 export default class Screens extends React.Component {
 
 	state= {
