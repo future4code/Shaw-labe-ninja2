@@ -21,7 +21,6 @@ export default class RegisterJob extends React.Component {
         inputImage:'',
         inputPaymentMethods:'',
         selectedOption:[],
-        showModal: true,
 
     }
 	onChangeInputTitle = (event) => {
@@ -49,21 +48,18 @@ export default class RegisterJob extends React.Component {
 
 		this.setState({ paymentMethods: options })
 	};
-	handleModal = () => {
-		this.setState({ showModal: !this.state.showModal })
-	}
 	addJob = () => {
 		const options = this.state.selectedOption.map((option) => {
 			return option.label
 		})
 		// ============================================================
 		// VER AQUI O CREATE JOB
-		createJob(this.state.inputTitle, this.state.inputImage, this.state.inputDescription, this.state.inputPrice, options, this.state.inputDueDate)
+		// createJob(this.state.inputTitle, this.state.inputImage, this.state.inputDescription, this.state.inputPrice, options, this.state.inputDueDate)
 		
 	}
 	render() {
 
-		if (!this.state.showModal) {
+		if (!this.props.showModal) {
 			return <span></span>
 		} else {
 			return (
@@ -117,7 +113,7 @@ export default class RegisterJob extends React.Component {
                     </Select>
 						<ContainerButton>
 							<Button onClick={this.addJob} color='success' ><Typography> Cadastrar</Typography></Button>
-							<Button onClick={this.handleModal}> Close</Button>
+							<Button onClick={this.props.handleModal}> Close</Button>
 						</ContainerButton>
 					</FormContainer>
 
