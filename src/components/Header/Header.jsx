@@ -18,7 +18,7 @@ export default class Header extends React.Component {
 				<ButtonsContainer>
 					<Button onClick={this.props.handleButton}>{this.props.buttonContent}</Button>
 					{
-						this.props.page === 'cart' ?
+						this.props.page === 'home' ?
 							<span></span>
 							:
 							<ShoppingCartIcon sx={{ fontSize: '35px', cursor: 'pointer' }} />
