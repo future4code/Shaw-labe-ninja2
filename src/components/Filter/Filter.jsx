@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilterStyle, List } from './style';
+import { FilterStyle} from './style';
 
 
 export default class Filter extends React.Component {
@@ -8,10 +8,10 @@ export default class Filter extends React.Component {
 
 		return (
 
-			<FilterStyle FilterStyle>
+			<FilterStyle>
 
 				<input
-					placeholder="search"
+					placeholder="Buscar"
 					value={this.props.query}
 					onChange={this.props.updateQuery}
 
@@ -19,7 +19,7 @@ export default class Filter extends React.Component {
 
 				<input
 					type='number'
-					placeholder="Min Price"
+					placeholder="Preço Min"
 					value={this.props.minPrice}
 					onChange={this.props.updateMinPrice}
 
@@ -27,7 +27,7 @@ export default class Filter extends React.Component {
 
 				<input
 					type='number'
-					placeholder="Max Price"
+					placeholder="Preço Max"
 					value={this.props.maxPrice}
 					onChange={this.props.updateMaxPrice}
 
@@ -35,15 +35,15 @@ export default class Filter extends React.Component {
 
 
 				<span>
-					<label for="sort">Filter by</label>
+					<label for="sort">Ordenar por:</label>
 					<select
 						name='sort'
 						value={this.props.sortingParameter}
-						onChange={this.props.upSortingParameter}
+						onChange={this.props.updateSortingParameter}
 					>
-						<option value="title">Title</option>
-						<option value="Price">Price</option>
-						<option value="dueDate">Term</option>
+						<option value="title">Titulo</option>
+						<option value="Price">Preço</option>
+						<option value="dueDate">Data</option>
 					</select>
 
 					<select
@@ -51,8 +51,8 @@ export default class Filter extends React.Component {
 						value={this.props.order}
 						onChange={this.props.updateOrder}
 					>
-						<option value={1}>Increasing</option>
-						<option value={-1}>Decreasing</option>
+						<option value={1}>Crescente</option>
+						<option value={-1}>Decrescente</option>
 
 					</select>
 				</span>
