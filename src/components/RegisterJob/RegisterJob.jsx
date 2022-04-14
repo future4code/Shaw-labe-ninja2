@@ -3,6 +3,7 @@ import Select from 'react-select'
 import { Input, FormContainer, customStyles,ContainerButton,Main } from './style'
 import { Typography } from '@mui/material'
 import Button from '@mui/material/Button';
+import {createJob} from '../../services/requests'
 
 
 const options = [
@@ -18,7 +19,7 @@ export default class RegisterJob extends React.Component {
         inputDescription:'',
         inputDueDate: '',
         inputPrice:'',
-        inputImage:'',
+        // inputImage:'',
         inputPaymentMethods:'',
         selectedOption:[],
 
@@ -51,12 +52,25 @@ export default class RegisterJob extends React.Component {
 	addJob = () => {
 		const options = this.state.selectedOption.map((option) => {
 			return option.label
+		});
+		createJob(this.state.inputTitle, this.state.inputDescription, Number(this.state.inputPrice), options, this.state.inputDueDate)
+
+		this.setState({
+			inputTitle:'',
+			inputDescription:'',
+			inputDueDate: '',
+			inputPrice:'',
+			// inputImage:'',
+			inputPaymentMethods:''
 		})
-		// ============================================================
-		// VER AQUI O CREATE JOB
-		// createJob(this.state.inputTitle, this.state.inputImage, this.state.inputDescription, this.state.inputPrice, options, this.state.inputDueDate)
 		
 	}
+	handleDateFocus = (event) => {
+        event.target.type="date"
+    }
+    handleDateBlur = (event) => {
+        event.target.type="text"
+    }
 	render() {
 
 		if (!this.props.showModal) {
@@ -66,7 +80,7 @@ export default class RegisterJob extends React.Component {
 		
 				<Main>
 					<FormContainer>
-						<Typography>Cadastrar Serviço</Typography>
+						<Typography sx={{fontSize:'22px'}}>Cadastrar Serviço</Typography>
 						<Input
 							value={this.state.inputTitle}
 							placeholder={'Título'}
@@ -84,7 +98,10 @@ export default class RegisterJob extends React.Component {
 						<Input
 							value={this.state.inputDueDate}
 							onChange={this.onChangeinputDueDate}
-							type={'date'}
+							type = {'text'}
+							onFocus={this.handleDateFocus}
+							onBlur = {this.handleDateBlur}
+							placeholder={'dd/mm/aaaa'}
 						/>
 
 
@@ -94,13 +111,13 @@ export default class RegisterJob extends React.Component {
 							onChange={this.onChangeInputPrice}
 							type={'number'}
 						/>
-						<Input
+						{/* <Input
 							value={this.state.inputPriceImage}
 							placeholder={'Imagem'}
 							onChange={this.onChangeInputImage}
 							type={'text'}
-						/>
-						<span>Formas de Pagamento:</span>
+						/> */}
+						<span><Typography sx={{fontSize:'14px'}}>Formas de Pagamento:</Typography></span>
 						<Select
 							styles={customStyles}
 							onChange={this.onChangeSelectedOption}
@@ -112,8 +129,8 @@ export default class RegisterJob extends React.Component {
 
                     </Select>
 						<ContainerButton>
-							<Button onClick={this.addJob} color='success' ><Typography> Cadastrar</Typography></Button>
-							<Button onClick={this.props.handleModal}> Close</Button>
+							<Button onClick={this.addJob}> Cadastrar</Button>
+							<Button onClick={this.props.handleModal}> Cancelar</Button>
 						</ContainerButton>
 					</FormContainer>
 

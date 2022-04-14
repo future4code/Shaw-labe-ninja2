@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {COLORS} from '../../constants/colorpalette'
 
 export const Main = styled.div`
     display:flex;
@@ -6,13 +7,22 @@ export const Main = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.551);
+    background: rgba(0, 0, 0, 0.679);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 5.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    position: absolute;
+    position: fixed;
     top:0;
+    Button{
+        color:${COLORS.fontPrimary};
+        font-weight: bold;
+        background-color: ${COLORS.primary};
+        :hover{
+            color:${COLORS.primary};
+            background-color: ${COLORS.fontPrimary};
+        }
+    }
 `
 export const FormContainer = styled.div`
     display:flex;
@@ -23,30 +33,13 @@ export const FormContainer = styled.div`
     padding: 30px;
     border-radius: 10px;
     box-shadow: 3px 3px 20px black;
-    color:#185477;
-    font-weight: bold;
     span{
         text-align: left;
         font-size: 0.85rem;
     }
 `
-export const Button = styled.button`
-    padding: 5px;
-    border:none;
-    outline:none;
-    width: 80px;;
-    border-radius: 5px;
-    color:blueviolet;
-    font-weight: bold;
-    border:1px solid whitesmoke;
-    background-color: #185477;
-    :hover{
-        color:whitesmoke;
-        background-color: #FFA21F;
-        border:1px solid whitesmoke;
-    }
 
-`
+
 export const ContainerButton = styled.div`
     cursor: pointer;
     display:flex;
@@ -59,11 +52,11 @@ export const Input = styled.input`
 padding: 10px;
 border: none;
 outline: none;
+font-size: 14px;
 border-radius:5px;
 background-color: rgba(212, 208, 215, 0.303);
-color: #185477;
 ::placeholder{
-    color: #FFA21F;
+    color: rgba(72, 71, 74, 0.626);
 
 }
 `
@@ -75,7 +68,7 @@ export const customStyles = {
     placeholder:(provided, state) => ({
     ...provided,
     textAlign:'left',
-    color: state.isFocused ?  '#185477' : '#FFA21F'
+    color: state.isFocused ?  'black' : 'rgba(72, 71, 74, 0.626)'
     }),
     menuList:(provided, state) => ({
         ...provided,
@@ -89,7 +82,7 @@ export const customStyles = {
     multiValue:(provided, state) => ({
         ...provided,
          maxWidth: state.selectProps.width,
-         backgroundColor:'#185477',
+         backgroundColor:'black',
         
     }),
     multiValueLabel:(provided, state) => ({
@@ -105,7 +98,7 @@ export const customStyles = {
     multiValueRemove:(provided,state) => ({
         ...provided,
         width: state.selectProps.width,
-        backgroundColor:'#185477',
+        backgroundColor:'black',
         color:'white',
         padding:'5px'
         
@@ -114,7 +107,7 @@ export const customStyles = {
         ...provided,
         width: state.selectProps.width,
         backgroundColor: state.isFocused ? '#ffa21f80' : 'transparent',
-        color: state.isFocused ? 'white' : '#185477',
+        color: state.isFocused ? 'white' : 'black',
 
         
     }),
