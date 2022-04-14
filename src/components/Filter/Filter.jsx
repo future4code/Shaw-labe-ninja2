@@ -1,4 +1,5 @@
 import React from 'react';
+import { FilterStyle } from './style';
 
 export default class Filter extends React.Component {
 
@@ -7,9 +8,9 @@ export default class Filter extends React.Component {
 	
 			return (
 				
-				<Filter>
-		
-				</Filter>
+				<FilterStyle>
+					SOU O FILTRO
+				</FilterStyle>
 			)
 	
 		}

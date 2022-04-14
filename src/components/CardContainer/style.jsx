@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const CardContainerMain = styled.div`
-    display: flex; 
+     display: flex; 
     flex-direction: row; 
-    flex-wrap: wrap;
+    flex-wrap: wrap; 
     justify-content: center;
-    width: 100%; 
+    max-width: 95%; 
 
 `

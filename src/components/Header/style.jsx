@@ -3,6 +3,7 @@ import {COLORS} from '../../constants/colorpalette'
 
 export const HeaderContainer = styled.div`
     height: 15vh;
+    width: 100%; 
     background-color: ${COLORS.primary};
     padding: 10px 20px;
     display:flex;
