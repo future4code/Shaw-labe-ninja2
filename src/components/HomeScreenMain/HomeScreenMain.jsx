@@ -1,6 +1,5 @@
 import React from 'react'; 
 import Filter from '../Filter/Filter';
-import Header from '../Header/Header';
 import Promotions from '../Promotions/Promotions';
 import CardContainer from '../CardContainer/CardContainer'
 import RegisterJob from '../RegisterJob/RegisterJob';
@@ -12,13 +11,28 @@ import { HomeScreenMainContainer } from './style';
 
 export default class HomeScreenMain extends React.Component {
 	
+	state = {
+		jobs:[],
+	}
+
+	filteredJobs = (data) => {
+		this.setState({jobs:data})
+	}
+
+	componentDidUpdate = () => {
+		console.log(this.state.jobs)
+	}
 	render() {
 
 		return (
 			<HomeScreenMainContainer>
 				<Promotions/> 
-				<Filter/> 
-				<CardContainer/>
+				<Filter
+				filteredJobs = {this.filteredJobs}
+				/> 
+				<CardContainer
+				jobs = {this.state.jobs}
+				/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
 				<RegisterJob 
 					handleModal = {this.props.handleModal}

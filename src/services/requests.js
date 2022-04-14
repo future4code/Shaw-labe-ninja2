@@ -74,7 +74,7 @@ export const getJobById = (id, saveJob) => {
     .then( (response) => {
         saveJob(response.data); 
     })
-    .catch((err) => alert(`${err.response.data.message}`))
+    //.catch((err) => alert(`${err.response.data.message}`))
 }
 //=====================================================================
 

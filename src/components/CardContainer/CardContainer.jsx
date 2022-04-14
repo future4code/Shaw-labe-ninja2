@@ -8,28 +8,28 @@ import {CardContainerMain} from './style'
 export default class CardContainer extends React.Component {
 
 	//chama todos os jobs necessarios
-	state = {
-		jobs: [], 
-	}
+	//state = {
+		//jobs: this.props.jobs, 
+	//}
 
 	//funcao de atualizar a lista de jobs
-	updateJobs = (jobsList) => 
-	{
-		this.setState({jobs: jobsList})
-	}
+	// updateJobs = (jobsList) => 
+	// {
+	// 	this.setState({jobs: jobsList})
+	// }
 
 	//assim que montar o componente atualizar jobs
-	componentDidMount() {
-		getAllJobs(this.updateJobs)
-	}
+	//componentDidMount() {
+		//getAllJobs(this.updateJobs)
+	//}
 
 	
 
 	render() {
 
-		console.log("My Jobs", this.state.jobs)
+		console.log("My Jobs", this.props.jobs)
 
-		let displayJobs = this.state.jobs.map( (job) => {
+		let displayJobs = this.props.jobs.map( (job) => {
 			return (<JobCard key={job.id} id = {job.id}/>)
 		})
 
