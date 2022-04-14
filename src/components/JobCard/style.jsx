@@ -8,8 +8,8 @@ export const Card = styled.div`
     min-width: 22vw; 
     max-width: 22vw; 
 
-    min-height: 30vh; 
-    max-height: 30vh; 
+    min-height: 35vh; 
+    max-height: 35vh; 
 
     margin: 2% 1%;
     padding: 1%;
@@ -40,6 +40,8 @@ export const Card = styled.div`
         }
         opacity: 1;
     }
+
+    
    
     
 

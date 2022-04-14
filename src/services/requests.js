@@ -139,16 +139,21 @@ export const deleteJob = (id) => {
 // AO SER CHAMADO RECEBER PARÂMETROS: 
         // id : id do job     
 //--------------------------------------------------------------------
-export const updateJob = (id) => {
+export const updateJob = async (id, jobStatus ) => {
 
     let body = {
-        "taken": true
+        "taken": jobStatus
     }
 
-    axios.post(`${BASE_URL}/jobs/${id}`, body, header)
-    .then( (response) => {
-        alert(" Job atualizado com sucesso")
-    }).catch( (err) => alert(`${err.response.data.message}`))
+    try {
+        const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
+    } catch (err) {
+        alert(`${err.response.data.message}`)
+    }
+    
+    
+    
+    //catch( (err) => alert(`${err.response.data.message}`))
 }
 
 //=======================================================================
