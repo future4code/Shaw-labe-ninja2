@@ -12,6 +12,7 @@ export const Main = styled.div`
     -webkit-backdrop-filter: blur( 13.5px );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     position: absolute;
+    top:0;
 `
 export const FormContainer = styled.div`
     display:flex;
@@ -112,7 +113,7 @@ export const customStyles = {
     option:(provided,state) => ({
         ...provided,
         width: state.selectProps.width,
-        backgroundColor: state.isFocused ? 'rgba(156, 36, 236, 0.397);' : 'transparent',
+        backgroundColor: state.isFocused ? '#ffa21f80' : 'transparent',
         color: state.isFocused ? 'white' : '#185477',
 
         
