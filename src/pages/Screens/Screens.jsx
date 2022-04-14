@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from 'react';
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Cart from '../Cart/Cart';
 import Footer from '../../components/Footer/Footer';
@@ -52,5 +52,5 @@ export default class Screens extends React.Component {
 		)
 
 	}
-	
+
 }

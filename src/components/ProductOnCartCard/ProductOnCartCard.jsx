@@ -1,18 +1,23 @@
-import React from 'react'; 
+import React from 'react';
+import { MainCardContainer } from './style';
 
 
 
 
 export default class ProductOnCartCard extends React.Component {
 
+	deleteProduct = () => {
+
+	}
+
 	render() {
 
 		return (
-			<div>
-				
-			</div>
+			<MainCardContainer>
+				<button onClick={this.deleteProduct} >X</button>
+			</MainCardContainer>
 		)
 
 	}
-	
+
 }
