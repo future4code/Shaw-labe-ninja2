@@ -3,6 +3,7 @@ import Filter from '../Filter/Filter';
 import Header from '../Header/Header';
 import Promotions from '../Promotions/Promotions';
 import CardContainer from '../CardContainer/CardContainer'
+import RegisterJob from '../RegisterJob/RegisterJob';
 import { HomeScreenMainContainer } from './style';
 
 //COMPONENTE PRINCIPAL DE HOME SCREEN
@@ -10,7 +11,12 @@ import { HomeScreenMainContainer } from './style';
 
 
 export default class HomeScreenMain extends React.Component {
-
+	state = {
+        showModal: false,
+	}
+	handleModal = () => {
+		this.setState({ showModal: !this.state.showModal })
+	}
 	render() {
 
 		return (
@@ -19,6 +25,11 @@ export default class HomeScreenMain extends React.Component {
 				<Promotions/> 
 				<Filter/> 
 				<CardContainer/>
+				{/* Só será mostrado quando clicado no botão que está no header */}
+				<RegisterJob 
+					handleModal = {this.handleModal}
+					showModal = {this.state.showModal}
+				/>
 				
 			</HomeScreenMainContainer>
 		)
