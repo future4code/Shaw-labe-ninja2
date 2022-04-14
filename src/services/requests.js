@@ -38,13 +38,13 @@ const header =
 		// 	getAllJobs(this.saveJobs)
 		// }
 //-----------------------------------------------------------------
-export const getAllJobs = (saveJobs) => { 
-
-    axios.get(`${BASE_URL}/jobs`,header)
-    .then( (response) => {
-           saveJobs(response.data.jobs)
-    })
-    .catch((err) => alert(`${err.response.data.message}`))
+export const getAllJobs = async (saveJobs) => { 
+    try{
+        const response = await axios.get(`${BASE_URL}/jobs`,header)
+        saveJobs(response.data.jobs)
+    } catch (err) {
+        alert(`${err.response.data.message}`)
+    }
 }
 //=================================================================
 
