@@ -17,6 +17,7 @@ export const LogoContainer = styled.div`
     align-items: center;
     height: 100%;
     width: 10%;
+    /* background-color: green; */
     img{
         height: 80%;
     }
@@ -28,7 +29,19 @@ export const InformationsContainer = styled.div`
     text-align: center;
     justify-content: center;
     height: 100%;
-    width: 50%;
-    /* background-color: green; //mudar depois */
-  
+    width: 75%;
+    /* background-color: blue; */
+`
+
+export const IconsContainer = styled.div`
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100%;
+    width: 15%;
+    /* background-color: red; */
+    img{
+        width: 80%;
+    }
 `
