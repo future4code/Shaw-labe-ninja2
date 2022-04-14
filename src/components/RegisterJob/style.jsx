@@ -106,8 +106,9 @@ export const customStyles = {
     option:(provided,state) => ({
         ...provided,
         width: state.selectProps.width,
-        backgroundColor: state.isFocused ? '#ffa21f80' : 'transparent',
-        color: state.isFocused ? 'white' : 'black',
+        backgroundColor: state.isFocused ? '#e5ff1f80' : 'transparent',
+        color:'black',
+        // color: state.isFocused ? 'white' : 'black',
 
         
     }),
