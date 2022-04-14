@@ -41,6 +41,7 @@ const header =
 export const getAllJobs = async (saveJobs) => { 
     try{
         const response = await axios.get(`${BASE_URL}/jobs`,header)
+        alert("updating list")
         saveJobs(response.data.jobs)
     } catch (err) {
         alert(`${err.response.data.message}`)
@@ -147,6 +148,8 @@ export const updateJob = async (id, jobStatus ) => {
 
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
+        alert(toString(response))
+        
     } catch (err) {
         alert(`${err.response.data.message}`)
     }

@@ -5,6 +5,7 @@ import CardContainer from '../CardContainer/CardContainer'
 import RegisterJob from '../RegisterJob/RegisterJob';
 import { HomeScreenMainContainer } from './style';
 import {getAllJobs} from '../../services/requests'
+import {updateJob} from '../../services/requests'
 
 //COMPONENTE PRINCIPAL DE HOME SCREEN
 //RENDERIZA COMPONENTES <HEADER>, <PROMOTIONS>, <FILTER>, <CARDCONTAINER>
@@ -20,6 +21,9 @@ export default class HomeScreenMain extends React.Component {
 		maxPrice: "",
 		sortingParameter: "title",
 		order: "asc",
+		clicked: false,
+		
+		
 	}
 
 	componentDidMount(){
@@ -29,9 +33,21 @@ export default class HomeScreenMain extends React.Component {
 	//guarda jobs no state
 	saveData = (data) => {
 		this.setState({
-			jobs: data
+			jobs: data,
+				
 		})
+	
 	}
+	
+	//FUNCAO DE PROCESSAR CARD CLICK, PARA MUDAR BOTAO DE CARD NO CARRINHO OU N
+	processCardClick = (id, takenStatus) => 
+	{   	
+		updateJob(id, takenStatus);
+		getAllJobs(this.saveData)
+		this.setState({clicked: !this.state.clicked})
+	
+	}
+
 	
 
 	updateQuery = (event) => {
@@ -63,7 +79,7 @@ export default class HomeScreenMain extends React.Component {
 		})
 	}
 	render() {
-		
+			console.log(this.state.clicked)
 			let jobsFiltered = [
 				
 			];
@@ -115,6 +131,7 @@ export default class HomeScreenMain extends React.Component {
 				/> 
 				<CardContainer
 					jobs = {jobsFiltered}
+					cardClicked = { (id, takenStatus) => this.processCardClick(id,takenStatus)}
 				/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
 				<RegisterJob 

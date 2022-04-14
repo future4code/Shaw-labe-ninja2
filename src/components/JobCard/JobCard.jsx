@@ -5,71 +5,60 @@ import { MenuItem, Typography } from '@mui/material';
 import { Button } from '@mui/material';
 
 
-
-
-
-
-
-
 export default class JobCard extends React.Component {
 
 	state = {
 		job: [], 
-		taken: false,
+		taken: this.props.taken,
 	}
-
 
 	saveJob = (job) => {
-		this.setState({job: job, taken: job.taken})
+		this.setState({ taken: job.taken})
 	}
 
-	componentDidMount(){
-		getJobById(this.props.id, this.saveJob)
-	}
+	// componentDidMount(){
+	// 	getJobById(this.props.id, this.saveJob)
+	// }
 
 	botarNoCarrinho = () => {
-		updateJob(this.props.id, !this.state.job.taken)
+		updateJob(this.props.id, !this.state.taken)
 		getJobById(this.props.id, this.saveJob)
 	  }
 
-	  componentDidUpdate(prevState)
-	  {
-		 
-			  if(prevState.taken !== this.state.taken )
-			  {
-				  getJobById(this.props.id, this.saveJob)
-			  }
-		  
-	  }
-
-
-
+	componentDidUpdate(prevProps) 
+	{
+		if(prevProps.taken !== this.props.taken)
+		{
+			this.forceUpdate();
+		}
+	}
 
 
 	//receive id as props
 
-	//jobs have 
-	// title
-	// description
-	// dueDate
-	// price
-	// payment methods
-	// taken
+				// key={job.id} 
+				// id = {job.id}
+				// title = {job.title}
+				// description = {job.description}
+				// dueDate = {job.dueDate}
+				// price = {job.price}
+				// paymentMethods = {job.paymentMethods}
+				// taken = {job.taken}
 
 
 	render() {
 		//0-9
 		let date;
-		if(this.state.job.dueDate) 
+		if(this.props.dueDate) 
 		{
-			date = this.state.job.dueDate.slice(0,10)
+			date = this.props.dueDate.slice(0,10)
 			
 		}
 		
 		let pagamentos; 
-		if (this.state.job.paymentMethods)
+		if (this.props.paymentMethods)
 		{
-			pagamentos = this.state.job.paymentMethods.map( (pagamento) => {
+			pagamentos = this.props.paymentMethods.map( (pagamento) => {
 				return (<option key= {pagamento}>{pagamento}</option>)
 			})
 		}
@@ -81,12 +70,12 @@ export default class JobCard extends React.Component {
 		return (
 			<Card>
 				
-				<Typography><h3>{this.state.job.title}</h3></Typography>
-				<Typography><p>{this.state.job.description}</p></Typography>
+				<Typography><h3>{this.props.title}</h3></Typography>
+				<Typography><p>{this.props.description}</p></Typography>
 				<Typography><p>{date}</p></Typography>
-				<Typography><p>{this.state.job.price} R$</p></Typography>
+				<Typography><p>{this.props.price} R$</p></Typography>
 				<Typography>Pagamento: <select>{pagamentos}</select></Typography>
-				{this.state.job.taken ? <Button onClick={() => this.botarNoCarrinho()} variant = "contained" >No Carrinho!</Button>:<Button onClick={() =>this.botarNoCarrinho()} variant = "contained" >Contratar</Button>}
+				{this.state.taken ? <Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >No Carrinho!</Button>:<Button onClick={() =>this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >Contratar</Button>}
 				
 				
 				
