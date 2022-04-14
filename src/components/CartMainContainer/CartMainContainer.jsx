@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main } from './style';
+import { Button, Main } from './style';
 
 
 
