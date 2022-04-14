@@ -11,7 +11,6 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     img{
         height: 100%;
-        border-radius:50%
     }
 `
 export const ButtonsContainer = styled.div`
@@ -22,12 +21,13 @@ export const ButtonsContainer = styled.div`
 
 export const Button = styled.button`
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 10px;
     border:2px double ${COLORS.fontPrimary};
     border-radius: 5px;
     outline: none;
     background-color: transparent;
     font-weight: bold;
+    font-size: 18px;
     :hover{
         background-color: ${COLORS.fontPrimary};
         color:${COLORS.primary}
