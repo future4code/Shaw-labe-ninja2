@@ -1,5 +1,7 @@
 import React from 'react';
-import { Main } from './style';
+import { Button, Main } from './style';
+import { getAllJobs } from '../../services/requests';
+import ProductOnCartCard from '../ProductOnCartCard/ProductOnCartCard';
 
 
 
@@ -24,7 +26,7 @@ export default class CartMainContainer extends React.Component {
 
 	//Mostra produtos no carrinho quando é rodado a primeira vez.
 	componentDidMount() {
-		this.getProduct()
+		getAllJobs(this.getProduct)
 	}
 
 	//Pega os produtos salvos na API e guarda no state.
@@ -39,16 +41,23 @@ export default class CartMainContainer extends React.Component {
 	render() {
 
 		//Mapeia os produtos e filtra apenas os com valores de 'taken = true'
-		/* let productsList = this.state.products.map((product) => {
-			return product
-		}).filter((product) => {
-			return (product.taken === true)
-		}) */
+		let productsList = []
+
+		if (this.state.products.length > 0) {
+			productsList = this.state.products.map((product) => {
+				return product
+			}).filter((product) => {
+				return (product.taken === true)
+			});
+			}
+		//Renderiza informações dos produtos selecionados no carrinho.
+			let renderCards = productsList.map(() => {
+				return <ProductOnCartCard/>
+			})
 
 		return (
 			<Main>
-				<h2>Sou o Carrinho</h2>
-				{/* {productsList} */}
+				{renderCards}
 				<button onClick={this.onClickBuy} >Concluir Compra</button>
 			</Main>
 		)
