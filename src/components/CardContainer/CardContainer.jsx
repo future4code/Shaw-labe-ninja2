@@ -10,11 +10,7 @@ export default class CardContainer extends React.Component {
 
 
 	
-
 	render() {
-
-		// console.log("My Jobs", this.props.jobs)
-		// let displayJobs = this.props.jobs; 
 
 		let displayJobs = this.props.jobs.map( (job) => {
 			return (<JobCard 

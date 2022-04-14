@@ -1,7 +1,6 @@
 import React from 'react'; 
 import { getJobById, updateJob } from '../../services/requests';
 import { Card } from './style';
-import { MenuItem, Typography } from '@mui/material'; 
 import { Button } from '@mui/material';
 
 
@@ -15,10 +14,6 @@ export default class JobCard extends React.Component {
 	saveJob = (job) => {
 		this.setState({ taken: job.taken})
 	}
-
-	// componentDidMount(){
-	// 	getJobById(this.props.id, this.saveJob)
-	// }
 
 	botarNoCarrinho = () => {
 		updateJob(this.props.id, !this.state.taken)
@@ -63,22 +58,15 @@ export default class JobCard extends React.Component {
 			})
 		}
 	
-		
-  		
-		
-
 		return (
 			<Card>
 				
-				<Typography><h3>{this.props.title}</h3></Typography>
-				<Typography><p>{this.props.description}</p></Typography>
-				<Typography><p>{date}</p></Typography>
-				<Typography><p>{this.props.price} R$</p></Typography>
-				<Typography>Pagamento: <select>{pagamentos}</select></Typography>
-				{this.state.taken ? <Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >No Carrinho!</Button>:<Button onClick={() =>this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >Contratar</Button>}
-				
-				
-				
+				<h3>{this.props.title}</h3>
+				<p style={{textAlign:'center'}}>{this.props.description}</p>
+				<p>{date}</p>
+				<p>{this.props.price} R$</p>
+				<p>Pagamento: <select>{pagamentos}</select></p>
+				<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >{this.props.taken ?  'No Carrinho!' : 'Contratar'}</Button>
 			</Card>
 		)
 

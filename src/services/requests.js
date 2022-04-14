@@ -41,7 +41,6 @@ const header =
 export const getAllJobs = async (saveJobs) => { 
     try{
         const response = await axios.get(`${BASE_URL}/jobs`,header)
-        alert("updating list")
         saveJobs(response.data.jobs)
     } catch (err) {
         alert(`${err.response.data.message}`)
@@ -75,7 +74,7 @@ export const getJobById = (id, saveJob) => {
     .then( (response) => {
         saveJob(response.data); 
     })
-    //.catch((err) => alert(`${err.response.data.message}`))
+    .catch((err) => console.log(`${err.response.data.message}`))
 }
 //=====================================================================
 
@@ -140,23 +139,17 @@ export const deleteJob = (id) => {
 // AO SER CHAMADO RECEBER PARÂMETROS: 
         // id : id do job     
 //--------------------------------------------------------------------
-export const updateJob = async (id, jobStatus ) => {
+export const updateJob = async (id, jobStatus,saveData ) => {
 
     let body = {
         "taken": jobStatus
     }
-
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
-        alert(toString(response))
-        
+        getAllJobs(saveData)
     } catch (err) {
         alert(`${err.response.data.message}`)
     }
-    
-    
-    
-    //catch( (err) => alert(`${err.response.data.message}`))
 }
 
 //=======================================================================
