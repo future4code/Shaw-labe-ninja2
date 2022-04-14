@@ -17,15 +17,15 @@ export default class Filter extends React.Component {
 
 				/>
 
-				<input className='numbers'
+				<input
 					type='number'
 					placeholder="R$ Min"
-					value={this.props.minPrice}
+					value={this.props.mincfPrice}
 					onChange={this.props.updateMinPrice}
 
 				/>
 
-				<input  className='numbers'
+				<input
 					type='number'
 					placeholder="R$ Max"
 					value={this.props.maxPrice}
