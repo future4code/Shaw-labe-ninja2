@@ -15,9 +15,9 @@ export default class Promotions extends React.Component {
 				<FieldSet class="fieldset-border">
 					<Legend >Promoções do dia <img src={OFF}/></Legend>
 					<PromotionsBox>
-						{/* <JobCard/>
 						<JobCard/>
-						<JobCard/> */}
+						<JobCard/>
+						<JobCard/>
 					</PromotionsBox>
 				</FieldSet>
 			</MainContainer>	

@@ -11,24 +11,18 @@ import { HomeScreenMainContainer } from './style';
 
 
 export default class HomeScreenMain extends React.Component {
-	state = {
-        showModal: false,
-	}
-	handleModal = () => {
-		this.setState({ showModal: !this.state.showModal })
-	}
+	
 	render() {
 
 		return (
 			<HomeScreenMainContainer>
-				<Header/>
 				<Promotions/> 
 				<Filter/> 
 				<CardContainer/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
 				<RegisterJob 
-					handleModal = {this.handleModal}
-					showModal = {this.state.showModal}
+					handleModal = {this.props.handleModal}
+					showModal = {this.props.showModal}
 				/>
 				
 			</HomeScreenMainContainer>
