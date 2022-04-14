@@ -7,3 +7,7 @@ background-color: orange;
 margin-top: 5%; 
     
 `
+
+export const List = styled.div`
+    display: flex;
+`
