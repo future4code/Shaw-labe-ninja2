@@ -48,22 +48,11 @@ export const ContainerButton = styled.div`
     gap: 15px;
     
 `
-export const Input = styled.input`
-padding: 10px;
-border: none;
-outline: none;
-font-size: 14px;
-border-radius:5px;
-background-color: rgba(212, 208, 215, 0.303);
-::placeholder{
-    color: rgba(72, 71, 74, 0.626);
-
-}
-`
 export const customStyles = {
     control: (provided, state) => ({
         ...provided,
-        backgroundColor:'rgba(212, 208, 215, 0.303);',
+        backgroundColor:'transparent',
+        // backgroundColor:'rgba(212, 208, 215, 0.303);',
       }),
     placeholder:(provided, state) => ({
     ...provided,
@@ -109,7 +98,6 @@ export const customStyles = {
         backgroundColor: state.isFocused ? '#e5ff1f80' : 'transparent',
         color:'black',
         // color: state.isFocused ? 'white' : 'black',
-
         
     }),
     
