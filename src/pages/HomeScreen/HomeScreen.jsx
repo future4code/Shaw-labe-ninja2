@@ -14,7 +14,7 @@ export default class HomeScreen extends React.Component {
 		return (
 			<div>
                 <HomeScreenMain/> 
-                {/* <RegisterJob/>  */}
+                <RegisterJob/> 
 			</div>
 		)
 
