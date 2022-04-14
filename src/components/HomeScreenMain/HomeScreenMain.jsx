@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Promotions from '../Promotions/Promotions';
 import CardContainer from '../CardContainer/CardContainer'
 import RegisterJob from '../RegisterJob/RegisterJob';
+import { HomeScreenMainContainer } from './style';
 
 //COMPONENTE PRINCIPAL DE HOME SCREEN
 //RENDERIZA COMPONENTES <HEADER>, <PROMOTIONS>, <FILTER>, <CARDCONTAINER>
@@ -19,12 +20,8 @@ export default class HomeScreenMain extends React.Component {
 	render() {
 
 		return (
-			<div>
-				<Header
-					buttonContent={'Cadastrar Serviço'}
-					page={'home'}
-					handleButton = {this.handleModal}
-				/>
+			<HomeScreenMainContainer>
+				<Header/>
 				<Promotions/> 
 				<Filter/> 
 				<CardContainer/>
@@ -34,7 +31,7 @@ export default class HomeScreenMain extends React.Component {
 					showModal = {this.state.showModal}
 				/>
 				
-			</div>
+			</HomeScreenMainContainer>
 		)
 
 	}

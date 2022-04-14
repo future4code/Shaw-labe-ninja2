@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/system"
+import { createTheme } from "@mui/material/styles"
 import {COLORS} from './colorpalette'
 import "@fontsource/poppins"
 import "@fontsource/playfair-display"
