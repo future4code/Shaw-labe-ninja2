@@ -2,8 +2,9 @@ import React from 'react'
 import Select from 'react-select'
 import { Input, FormContainer, customStyles,ContainerButton,Main } from './style'
 import { Typography } from '@mui/material'
-import Button from '@mui/material/Button';
+import Button from '@mui/material/Button'
 import {createJob} from '../../services/requests'
+import TextField from '@mui/material/TextField'
 
 
 const options = [
@@ -81,35 +82,44 @@ export default class RegisterJob extends React.Component {
 				<Main>
 					<FormContainer>
 						<Typography sx={{fontSize:'22px'}}>Cadastrar Serviço</Typography>
-						<Input
+
+						<TextField sx={{}}
+							label={'Título'}
+							variant={"outlined"}
 							value={this.state.inputTitle}
-							placeholder={'Título'}
 							onChange={this.onChangeInputTitle}
 							type={'text'}
+							size={"small"}
 						/>
 
-						<Input
+						<TextField 
+							label={'Descrição'}
+							variant={"outlined"}
 							value={this.state.inputDescription}
-							placeholder={'Descrição'}
 							onChange={this.onChangeInputDescription}
 							type={'text'}
+							size={"small"}
 						/>
 
-						<Input
+						<TextField
+							label={'Prazo'}
+							variant={"outlined"}
 							value={this.state.inputDueDate}
 							onChange={this.onChangeinputDueDate}
 							type = {'text'}
 							onFocus={this.handleDateFocus}
 							onBlur = {this.handleDateBlur}
-							placeholder={'dd/mm/aaaa'}
+							size={"small"}
 						/>
 
 
-						<Input
+						<TextField
+							label={'Valor'}
+							variant={"outlined"}
 							value={this.state.inputPrice}
-							placeholder={'Valor'}
 							onChange={this.onChangeInputPrice}
 							type={'number'}
+							size={"small"}
 						/>
 						{/* <Input
 							value={this.state.inputPriceImage}
@@ -118,6 +128,7 @@ export default class RegisterJob extends React.Component {
 							type={'text'}
 						/> */}
 						<span><Typography sx={{fontSize:'14px'}}>Formas de Pagamento:</Typography></span>
+
 						<Select
 							styles={customStyles}
 							onChange={this.onChangeSelectedOption}
@@ -125,9 +136,9 @@ export default class RegisterJob extends React.Component {
 							isMulti
 							options={options}
 							value={this.state.selectedOption}
-						>
+							>
+						</Select>
 
-                    </Select>
 						<ContainerButton>
 							<Button onClick={this.addJob}> Cadastrar</Button>
 							<Button onClick={this.props.handleModal}> Cancelar</Button>
