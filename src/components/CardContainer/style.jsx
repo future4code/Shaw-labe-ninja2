@@ -5,6 +5,7 @@ export const CardContainerMain = styled.div`
     flex-direction: row; 
     flex-wrap: wrap; 
     justify-content: center;
-    max-width: 95%; 
+    max-width: 100%; 
+    
 
 `

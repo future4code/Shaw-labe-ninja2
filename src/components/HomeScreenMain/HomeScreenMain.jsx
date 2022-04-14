@@ -23,31 +23,38 @@ export default class HomeScreenMain extends React.Component {
 	}
 
 	componentDidMount(){
-		getAllJobs(this.saveDate)
+		getAllJobs(this.saveData)
 	}
-	saveDate = (data) => {
+
+	//guarda jobs no state
+	saveData = (data) => {
 		this.setState({
 			jobs: data
 		})
 	}
+	
+
 	updateQuery = (event) => {
 		this.setState({
 			query: event.target.value
 		})
 	}
+
 	updateMinPrice = (event) => {
 		this.setState({
 			minPrice: event.target.value
 		})
 	}
+
 	updateMaxPrice = (event) => {
 		this.setState({
 			maxPrice: event.target.value
 		})
 	}
+
 	updateSortingParameter = (event) => {
 		this.setState({
-			sortingParamete: event.target.value
+			sortingParameter: event.target.value
 		})
 	}
 	updateOrder = (event) => {
@@ -57,19 +64,28 @@ export default class HomeScreenMain extends React.Component {
 	}
 	render() {
 		
-			const jobsFiltered= this.state.jobs
+			let jobsFiltered = [
+				
+			];
+
+			if (this.state.jobs.length > 0)
+			{
+			jobsFiltered= this.state.jobs
 				.filter(job => {
 					
 					return job.title.toLowerCase().includes(this.state.query.toLowerCase()) ||
 						job.description.toLowerCase().includes(this.state.query.toLowerCase())
 				})
+			
 				.filter(job => {
-					console.log(this.state.minPrice === "" || job.price >= this.state.minPrice)
+					// console.log(this.state.minPrice === "" || job.price >= this.state.minPrice)
 					return this.state.minPrice === "" || job.price >= this.state.minPrice
 				})
+			
 				.filter(job => {
 					return this.state.maxPrice === "" || job.price <= this.state.maxPrice
 				})
+			 
 				.sort((currentJob, nextJob) => {
 					switch (this.state.sortingParameter) {
 						case "title":
@@ -80,6 +96,7 @@ export default class HomeScreenMain extends React.Component {
 							return this.state.order * (currentJob.price - nextJob.price)
 					}
 				})
+			}
 
 		return (
 			<HomeScreenMainContainer>
