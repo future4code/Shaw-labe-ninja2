@@ -1,8 +1,8 @@
-import React from 'react'; 
+import React from 'react';
 import HomeScreen from '../HomeScreen/HomeScreen';
 import Cart from '../Cart/Cart';
 import Footer from '../../components/Footer/Footer';
-import {ScreensContainer} from './style'
+import { ScreensContainer } from './style'
 
 //LOGICA DE TROCA DE TELA AQUI
 
@@ -19,13 +19,12 @@ export default class Screens extends React.Component {
 
 		return (
 			<ScreensContainer>
-                <HomeScreen/>{/* OU  <Cart/>  */}
-
-               
-				<Footer/>
+				<HomeScreen />{/* OU  <Cart/>  */}
+				<Cart />
+				<Footer />
 			</ScreensContainer>
 		)
 
 	}
-	
+
 }
