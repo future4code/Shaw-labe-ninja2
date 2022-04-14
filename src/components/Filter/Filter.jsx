@@ -35,7 +35,7 @@ export default class Filter extends React.Component {
 
 
 				<span>
-					<label for="sort">Ordination</label>
+					<label for="sort">Filter by</label>
 					<select
 						name='sort'
 						value={this.props.sortingParameter}
@@ -51,7 +51,7 @@ export default class Filter extends React.Component {
 						value={this.props.order}
 						onChange={this.props.updateOrder}
 					>
-						<option value={1}>Crescents</option>
+						<option value={1}>Increasing</option>
 						<option value={-1}>Decreasing</option>
 
 					</select>
