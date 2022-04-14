@@ -16,12 +16,14 @@ export default class Header extends React.Component {
 			<HeaderContainer>
 				<img src={logo} alt={'logo'} />
 				<ButtonsContainer>
-					<Button onClick={this.props.handleButton}>{this.props.buttonContent}</Button>
 					{
-						this.props.page === 'home' ?
-							<span></span>
+						this.props.page === 'Cart' ?
+							<Button onClick={()=>this.props.changePage('HomeScreen')}>{this.props.buttonContent}</Button>
 							:
-							<ShoppingCartIcon sx={{ fontSize: '35px', cursor: 'pointer' }} />
+							<>
+							<Button onClick={this.props.handleButton}>{this.props.buttonContent}</Button>
+							<ShoppingCartIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick ={()=>this.props.changePage('Cart')} />
+							</>
 					}
 				</ButtonsContainer>
 			</HeaderContainer>
