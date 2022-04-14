@@ -40,10 +40,4 @@ export const Card = styled.div`
         }
         opacity: 1;
     }
-
-    
-   
-    
-
-
 `

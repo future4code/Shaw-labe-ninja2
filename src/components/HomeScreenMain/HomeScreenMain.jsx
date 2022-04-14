@@ -1,19 +1,19 @@
-import React from 'react'; 
+import React from 'react';
 import Filter from '../Filter/Filter';
 import Promotions from '../Promotions/Promotions';
 import CardContainer from '../CardContainer/CardContainer'
 import RegisterJob from '../RegisterJob/RegisterJob';
 import { HomeScreenMainContainer } from './style';
-import {getAllJobs} from '../../services/requests'
-import {updateJob} from '../../services/requests'
+import { getAllJobs } from '../../services/requests'
+import { updateJob } from '../../services/requests'
 
 //COMPONENTE PRINCIPAL DE HOME SCREEN
 //RENDERIZA COMPONENTES <HEADER>, <PROMOTIONS>, <FILTER>, <CARDCONTAINER>
 
 
 export default class HomeScreenMain extends React.Component {
-	
-	
+
+
 	state = {
 		jobs: [],
 		query: "",
@@ -22,11 +22,10 @@ export default class HomeScreenMain extends React.Component {
 		sortingParameter: "title",
 		order: "asc",
 		clicked: false,
-		
-		
+		loading: true
 	}
 
-	componentDidMount(){
+	componentDidMount() {
 		getAllJobs(this.saveData)
 	}
 
@@ -34,21 +33,17 @@ export default class HomeScreenMain extends React.Component {
 	saveData = (data) => {
 		this.setState({
 			jobs: data,
-				
+			loading: false
 		})
-	
-	}
-	
-	//FUNCAO DE PROCESSAR CARD CLICK, PARA MUDAR BOTAO DE CARD NO CARRINHO OU N
-	processCardClick = (id, takenStatus) => 
-	{   	
-		updateJob(id, takenStatus);
-		getAllJobs(this.saveData)
-		this.setState({clicked: !this.state.clicked})
-	
+
 	}
 
-	
+	//FUNCAO DE PROCESSAR CARD CLICK, PARA MUDAR BOTAO DE CARD NO CARRINHO OU N
+	processCardClick = (id, takenStatus) => {
+		updateJob(id, takenStatus, this.saveData);
+		this.setState({ clicked: !this.state.clicked })
+
+	}
 
 	updateQuery = (event) => {
 		this.setState({
@@ -79,29 +74,27 @@ export default class HomeScreenMain extends React.Component {
 		})
 	}
 	render() {
-			console.log(this.state.clicked)
-			let jobsFiltered = [
-				
-			];
 
-			if (this.state.jobs.length > 0)
-			{
-			jobsFiltered= this.state.jobs
+		let jobsFiltered = [
+
+		];
+
+		if (this.state.jobs.length > 0) {
+			jobsFiltered = this.state.jobs
 				.filter(job => {
-					
+
 					return job.title.toLowerCase().includes(this.state.query.toLowerCase()) ||
 						job.description.toLowerCase().includes(this.state.query.toLowerCase())
 				})
-			
+
 				.filter(job => {
-					// console.log(this.state.minPrice === "" || job.price >= this.state.minPrice)
 					return this.state.minPrice === "" || job.price >= this.state.minPrice
 				})
-			
+
 				.filter(job => {
 					return this.state.maxPrice === "" || job.price <= this.state.maxPrice
 				})
-			 
+
 				.sort((currentJob, nextJob) => {
 					switch (this.state.sortingParameter) {
 						case "title":
@@ -112,36 +105,36 @@ export default class HomeScreenMain extends React.Component {
 							return this.state.order * (currentJob.price - nextJob.price)
 					}
 				})
-			}
+		}
 
 		return (
 			<HomeScreenMainContainer>
-				<Promotions/> 
+				<Promotions />
 				<Filter
-					updateQuery = {this.updateQuery}
-					updateMaxPrice = {this.updateMaxPrice}
-					updateMinPrice = {this.updateMinPrice}
-					updateSortingParameter = {this.updateSortingParameter}
-					updateOrder = {this.updateOrder}
-					query = {this.state.query}
-					minPrice = {this.state.minPrice}
-					maxPrice = {this.state.maxPrice} 
-					sortingParameter = {this.state.sortingParameter} 
-					order = {this.state.order} 
-				/> 
+					updateQuery={this.updateQuery}
+					updateMaxPrice={this.updateMaxPrice}
+					updateMinPrice={this.updateMinPrice}
+					updateSortingParameter={this.updateSortingParameter}
+					updateOrder={this.updateOrder}
+					query={this.state.query}
+					minPrice={this.state.minPrice}
+					maxPrice={this.state.maxPrice}
+					sortingParameter={this.state.sortingParameter}
+					order={this.state.order}
+				/>
 				<CardContainer
-					jobs = {jobsFiltered}
-					cardClicked = { (id, takenStatus) => this.processCardClick(id,takenStatus)}
+					jobs={jobsFiltered}
+					cardClicked={(id, takenStatus) => this.processCardClick(id, takenStatus)}
 				/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
-				<RegisterJob 
-					handleModal = {this.props.handleModal}
-					showModal = {this.props.showModal}
+				<RegisterJob
+					handleModal={this.props.handleModal}
+					showModal={this.props.showModal}
 				/>
-				
+
 			</HomeScreenMainContainer>
 		)
 
 	}
-	
+
 }
