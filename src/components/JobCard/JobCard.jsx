@@ -6,6 +6,7 @@ import { useRef } from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Rating from '@mui/material/Rating';
 
+
 export default class JobCard extends React.Component {
 	constructor(props) {
 		super(props);
@@ -14,6 +15,7 @@ export default class JobCard extends React.Component {
 	state = {
 		job: [],
 		taken: this.props.taken,
+		rating: Math.floor((Math.random() * 5) + 2)
 	}
 
 	saveJob = (job) => {
@@ -58,7 +60,7 @@ export default class JobCard extends React.Component {
 				return (<option key={pagamento}>{pagamento}</option>)
 			})
 		}
-
+//220/160
 		return (
 			<Card>
 				<Flippy
@@ -81,12 +83,12 @@ export default class JobCard extends React.Component {
 					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }} animationDuration={1000}>
 						<h3 style={{ color:' #FFE600', fontSize:'24px'}}>{this.props.title}</h3>
 						<p style={{ textAlign: 'center'}}>{this.props.description}</p>
-						<Rating name="read-only" value={4} readOnly />
+						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>
 						<p>{this.props.price} R$</p>
 						<p>Pagamento: <select>{pagamentos}</select></p>
 						{this.props.taken ?
-							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small"> No Carrinho!</Button>
+							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small" > No Carrinho!</Button>
 							:
 							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small">Contratar</Button>
 						}
