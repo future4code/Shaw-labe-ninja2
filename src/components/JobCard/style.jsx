@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {COLORS} from '../../constants/colorpalette'
+import theme from '../../constants/theme'
 
 export const Card = styled.div`
     
@@ -14,9 +15,11 @@ export const Card = styled.div`
     padding: 1%;
 
     color: ${COLORS.fontPrimary};
-    
+    font-family: ${theme.typography.fontFamily};
     justify-content: space-evenly; 
     align-items: center;
+
+    
 
     h3 
     {
