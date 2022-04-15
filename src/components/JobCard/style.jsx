@@ -50,3 +50,14 @@ export const ImgContainer = styled.div`
     align-items: center;
     justify-content: space-around;
 `
+
+export const SelectPay = styled.select`
+    background-color: rgba(0,0,0,0.9); 
+    border: 1px solid #ffffff7f;
+    height: 2em;
+    border-radius: 5px;
+    margin-left: 3px;
+    color: rgba(255,255,255,0.7);
+    outline: none;
+
+`

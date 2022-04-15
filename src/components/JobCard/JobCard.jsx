@@ -1,10 +1,11 @@
 import React from 'react';
 import { getJobById, updateJob } from '../../services/requests';
-import { Card, Img, ImgContainer } from './style';
+import { Card, Img, ImgContainer,SelectPay} from './style';
 import { Button } from '@mui/material';
 import { useRef } from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
 import Rating from '@mui/material/Rating';
+
 
 
 export default class JobCard extends React.Component {
@@ -70,23 +71,23 @@ export default class JobCard extends React.Component {
 					ref={this.ref} // to use toggle method like ref.curret.toggle()
 					// if you pass isFlipped prop component will be controlled component.
 					// and other props, which will go to div
-					style={{ width: '22vw', height: '22vw' }} /// these are optional style, it is not necessary
+					style={{ width: '22vw', height: '22vw'}} /// these are optional style, it is not necessary
 
 				>
-					<FrontSide style={{ backgroundColor: '#C8C4C4', boxShadow: '2px 2px 10px black' }} animationDuration={1000}>
-						<h3 style={{ fontSize:'24px', textAlign:'center', marginBottom:'10px'}}>{this.props.title}</h3>
+					<FrontSide style={{  backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 100%, #000000 50%)', padding:'5px' }} animationDuration={1000}>
+						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#FFE600'}}>{this.props.title}</h3>
 						<ImgContainer>
-							<Img src={'https://picsum.photos/220/160'} alt={''} />
-							<p>R${this.props.price},00</p>
+							<Img style={{border:'1px solid #FFE600'}} src={'https://picsum.photos/250/150'} alt={''} />
+							<p style={{color:'white', fontSize:'1.2em'}}>R$ {this.props.price},00</p>
 						</ImgContainer>
 					</FrontSide>
-					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }} animationDuration={1000}>
+					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',padding:'5px' }} animationDuration={1000}>
 						<h3 style={{ color:' #FFE600', fontSize:'24px'}}>{this.props.title}</h3>
 						<p style={{ textAlign: 'center'}}>{this.props.description}</p>
 						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>
-						<p>{this.props.price} R$</p>
-						<p>Pagamento: <select>{pagamentos}</select></p>
+						<p>R$ {this.props.price},00</p>
+						<p>Pagamento: <SelectPay>{pagamentos}</SelectPay></p>
 						{this.props.taken ?
 							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small" > No Carrinho!</Button>
 							:
