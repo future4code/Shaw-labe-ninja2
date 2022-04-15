@@ -1,13 +1,16 @@
 import axios from "axios";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+toast.configure()
 
-const API_TOKEN = "a4fb1dfb-25b2-443e-b040-55225dae7786"; 
-const BASE_URL = "https://labeninjas.herokuapp.com"; 
-const header = 
+const API_TOKEN = "a4fb1dfb-25b2-443e-b040-55225dae7786";
+const BASE_URL = "https://labeninjas.herokuapp.com";
+const header =
 {
-   headers: {
-       Authorization: API_TOKEN,
-   }
-    
+    headers: {
+        Authorization: API_TOKEN,
+    }
+
 }
 
 // LISTA DE REQUISIÇÕES
@@ -28,22 +31,23 @@ const header =
 // saveJobs = (jobsList) => {
 
 //     this.setState({jobs: jobsList})
-    
+
 // }
 
 // chamar a função no seu componente: 
 
 //  componentDidMount() 
-		// {
-		// 	getAllJobs(this.saveJobs)
-		// }
+// {
+// 	getAllJobs(this.saveJobs)
+// }
 //-----------------------------------------------------------------
-export const getAllJobs = async (saveJobs) => { 
-    try{
-        const response = await axios.get(`${BASE_URL}/jobs`,header)
+export const getAllJobs = async (saveJobs, setTrue) => {
+    setTrue()
+    try {
+        const response = await axios.get(`${BASE_URL}/jobs`, header)
         saveJobs(response.data.jobs)
     } catch (err) {
-        alert(`${err.response.data.message}`)
+        toast.error(`${err.response.data.message}`)
     }
 }
 //=================================================================
@@ -56,7 +60,7 @@ export const getAllJobs = async (saveJobs) => {
 //.....::::::::::::(GET) getJobById (id, saveJob):::::::::::::.......
 //----------------------------------------------------------------------
 // Recebe dois inputs: 
- //   id: id do job a ser deletado
+//   id: id do job a ser deletado
 //    saveJob: arrow function que vai ser chamada para guardar o job no state
 
 // exemplo:
@@ -70,11 +74,11 @@ export const getAllJobs = async (saveJobs) => {
 //-------------------------------------------------------------------------
 export const getJobById = (id, saveJob) => {
     
-    axios.get(`${BASE_URL}/jobs/${id}`,header)
-    .then( (response) => {
-        saveJob(response.data); 
-    })
-    .catch((err) => console.log(`${err.response.data.message}`))
+    axios.get(`${BASE_URL}/jobs/${id}`, header)
+        .then((response) => {
+            saveJob(response.data);
+        })
+        .catch((err) => console.log(`${err.response.data.message}`))
 }
 //=====================================================================
 
@@ -85,27 +89,28 @@ export const getJobById = (id, saveJob) => {
 //.....:::::::::::::::::::::::::(POST) CreateJob:::::::::::::............
 //-------------------------------------------------------------------------
 // AO SER CHAMADO RECEBER PARÂMETROS: 
-        // TITLE (string)
-        // DESCRIPTION (string)
-        // PRICE (numero)
-        // PAYMENTOPTIONS (array de string)
-        // DUEDATE (string em formato de data)
+// TITLE (string)
+// DESCRIPTION (string)
+// PRICE (numero)
+// PAYMENTOPTIONS (array de string)
+// DUEDATE (string em formato de data)
 //--------------------------------------------------------------------------
-export const createJob = (title, description, price, paymentOptions, dueDate) => {
-    
+export const createJob = (title, description, price, paymentOptions, dueDate, saveData, setTrue) => {
+
     let body = {
-        
-             title: title,
-             description: description,
-             price: price,
-             paymentMethods: paymentOptions,
-             dueDate:dueDate    
+
+        title: title,
+        description: description,
+        price: price,
+        paymentMethods: paymentOptions,
+        dueDate: dueDate
     }
 
     axios.post(`${BASE_URL}/jobs`, body, header)
-    .then( (response) => {
-        alert(" Job foi criado com sucesso")
-    }).catch( (err) => alert(`${err.response.data.message}`))
+        .then((response) => {
+            getAllJobs(saveData, setTrue)
+            toast.success(" Job foi criado com sucesso")
+    }).catch ( (err) => toast.error(`${err.response.data.message}`))
 
 }
 //===========================================================================
@@ -117,14 +122,14 @@ export const createJob = (title, description, price, paymentOptions, dueDate) =>
 //.....::::::::::::(DELETE) DeleteJob:::::::::::::.......
 //--------------------------------------------------------------------
 // AO SER CHAMADO RECEBER PARÂMETROS: 
-        // id : id do job     
+// id : id do job     
 //--------------------------------------------------------------------
 export const deleteJob = (id) => {
 
-    axios.delete(`${BASE_URL}/jobs/${id}`,header)
-    .then( (response) => {
-        alert(" Job deletado com sucesso")
-    }).catch( (err) => alert(`${err.response.data.message}`))
+    axios.delete(`${BASE_URL}/jobs/${id}`, header)
+        .then((response) => {
+            toast.success(" Job deletado com sucesso")
+        }).catch((err) => toast.error(`${err.response.data.message}`))
 }
 
 //==================================================================
@@ -137,18 +142,18 @@ export const deleteJob = (id) => {
 //.....::::::::::::(POST) UpdateJob:::::::::::::.......
 //--------------------------------------------------------------------
 // AO SER CHAMADO RECEBER PARÂMETROS: 
-        // id : id do job     
+// id : id do job     
 //--------------------------------------------------------------------
-export const updateJob = async (id, jobStatus,saveData ) => {
+export const updateJob = async (id, jobStatus, saveData, setTrue) => {
 
     let body = {
         "taken": jobStatus
     }
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
-        getAllJobs(saveData)
+        getAllJobs(saveData, setTrue)
     } catch (err) {
-        alert(`${err.response.data.message}`)
+        toast.error(`${err.response.data.message}`)
     }
 }
 

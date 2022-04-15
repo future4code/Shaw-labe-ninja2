@@ -26,7 +26,7 @@ export default class HomeScreenMain extends React.Component {
 	}
 
 	componentDidMount() {
-		getAllJobs(this.saveData)
+		getAllJobs(this.saveData, this.setTrue)
 	}
 
 	//guarda jobs no state
@@ -37,10 +37,13 @@ export default class HomeScreenMain extends React.Component {
 		})
 
 	}
+	setTrue = () => {
+		this.setState({loading:true})
+	}
 
 	//FUNCAO DE PROCESSAR CARD CLICK, PARA MUDAR BOTAO DE CARD NO CARRINHO OU N
 	processCardClick = (id, takenStatus) => {
-		updateJob(id, takenStatus, this.saveData);
+		updateJob(id, takenStatus, this.saveData, this.setTrue);
 		this.setState({ clicked: !this.state.clicked })
 
 	}
@@ -110,6 +113,7 @@ export default class HomeScreenMain extends React.Component {
 		return (
 			<HomeScreenMainContainer>
 				<Promotions />
+				
 				<Filter
 					updateQuery={this.updateQuery}
 					updateMaxPrice={this.updateMaxPrice}
@@ -125,11 +129,14 @@ export default class HomeScreenMain extends React.Component {
 				<CardContainer
 					jobs={jobsFiltered}
 					cardClicked={(id, takenStatus) => this.processCardClick(id, takenStatus)}
+					loading = {this.state.loading}
 				/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
 				<RegisterJob
 					handleModal={this.props.handleModal}
 					showModal={this.props.showModal}
+					saveData = {this.saveData}
+					setTrue = {this.setTrue}
 				/>
 
 			</HomeScreenMainContainer>

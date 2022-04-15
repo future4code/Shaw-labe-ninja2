@@ -54,7 +54,7 @@ export default class RegisterJob extends React.Component {
 		const options = this.state.selectedOption.map((option) => {
 			return option.label
 		});
-		createJob(this.state.inputTitle, this.state.inputDescription, Number(this.state.inputPrice), options, this.state.inputDueDate)
+		createJob(this.state.inputTitle, this.state.inputDescription, Number(this.state.inputPrice), options, this.state.inputDueDate,this.props.saveData, this.props.setTrue)
 
 		this.setState({
 			inputTitle:'',
@@ -64,6 +64,8 @@ export default class RegisterJob extends React.Component {
 			// inputImage:'',
 			inputPaymentMethods:''
 		})
+
+		this.props.handleModal()
 		
 	}
 	handleDateFocus = (event) => {
@@ -136,12 +138,12 @@ export default class RegisterJob extends React.Component {
 							isMulti
 							options={options}
 							value={this.state.selectedOption}
-							>
+						>
 						</Select>
 
 						<ContainerButton>
-							<Button onClick={this.addJob}> Cadastrar</Button>
-							<Button onClick={this.props.handleModal}> Cancelar</Button>
+							<Button onClick={this.addJob}>Cadastrar</Button>
+							<Button onClick={this.props.handleModal}>Cancelar</Button>
 						</ContainerButton>
 					</FormContainer>
 

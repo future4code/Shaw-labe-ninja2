@@ -11,6 +11,7 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     img{
         height: 100%;
+        cursor: pointer;
     }
 `
 export const ButtonsContainer = styled.div`

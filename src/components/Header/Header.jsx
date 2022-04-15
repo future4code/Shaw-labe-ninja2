@@ -14,7 +14,7 @@ export default class Header extends React.Component {
 
 		return (
 			<HeaderContainer>
-				<img src={logo} alt={'logo'} />
+				<img src={logo} alt={'logo'} onClick={()=>this.props.changePage('HomeScreen')}/>
 				<ButtonsContainer>
 					{
 						this.props.page === 'Cart' ?
