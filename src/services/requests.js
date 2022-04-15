@@ -95,12 +95,12 @@ export const getJobById = (id, saveJob) => {
 // PAYMENTOPTIONS (array de string)
 // DUEDATE (string em formato de data)
 //--------------------------------------------------------------------------
-export const createJob = (title, description, price, paymentOptions, dueDate, saveData, setTrue) => {
-
+export const createJob = (title, description, price, paymentOptions, dueDate, image, saveData, setTrue) => {
+    console.log(image,title,`${title},${image}`)
     let body = {
 
-        title: title,
-        description: description,
+        title: `${title}`,
+        description: `${description}<>${image}`,
         price: price,
         paymentMethods: paymentOptions,
         dueDate: dueDate

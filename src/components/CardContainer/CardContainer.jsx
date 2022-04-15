@@ -14,11 +14,14 @@ export default class CardContainer extends React.Component {
 	render() {
 
 		let displayJobs = this.props.jobs.map((job) => {
+			const data = job.description.split('<>')
+			console.log(data)
 			return (<JobCard
 				key={job.id}
 				id={job.id}
 				title={job.title}
-				description={job.description}
+				image={data[1]}
+				description={data[0]}
 				dueDate={job.dueDate}
 				price={job.price}
 				paymentMethods={job.paymentMethods}

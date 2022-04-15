@@ -54,14 +54,14 @@ export default class RegisterJob extends React.Component {
 		const options = this.state.selectedOption.map((option) => {
 			return option.label
 		});
-		createJob(this.state.inputTitle, this.state.inputDescription, Number(this.state.inputPrice), options, this.state.inputDueDate,this.props.saveData, this.props.setTrue)
+		createJob(this.state.inputTitle, this.state.inputDescription, Number(this.state.inputPrice), options, this.state.inputDueDate, this.state.inputImage, this.props.saveData, this.props.setTrue)
 
 		this.setState({
 			inputTitle:'',
 			inputDescription:'',
 			inputDueDate: '',
 			inputPrice:'',
-			// inputImage:'',
+			inputImage:'',
 			inputPaymentMethods:''
 		})
 
@@ -85,7 +85,7 @@ export default class RegisterJob extends React.Component {
 					<FormContainer>
 						<Typography sx={{fontSize:'22px'}}>Cadastrar Serviço</Typography>
 
-						<TextField sx={{}}
+						<TextField
 							label={'Título'}
 							variant={"outlined"}
 							value={this.state.inputTitle}
@@ -114,7 +114,6 @@ export default class RegisterJob extends React.Component {
 							size={"small"}
 						/>
 
-
 						<TextField
 							label={'Valor'}
 							variant={"outlined"}
@@ -123,12 +122,15 @@ export default class RegisterJob extends React.Component {
 							type={'number'}
 							size={"small"}
 						/>
-						{/* <Input
+
+						<TextField
+							label={'Imagem'}
+							variant={"outlined"}
 							value={this.state.inputPriceImage}
-							placeholder={'Imagem'}
 							onChange={this.onChangeInputImage}
 							type={'text'}
-						/> */}
+							size={"small"}
+						/>
 						<span><Typography sx={{fontSize:'14px'}}>Formas de Pagamento:</Typography></span>
 
 						<Select

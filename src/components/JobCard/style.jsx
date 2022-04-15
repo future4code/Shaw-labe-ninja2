@@ -44,6 +44,8 @@ export const Card = styled.div`
 `
 export const Img = styled.img`
     border-radius: 10px;
+    height: 14rem;
+    width:19rem;
 `
 export const ImgContainer = styled.div`
     display: flex;
