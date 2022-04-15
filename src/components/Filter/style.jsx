@@ -25,9 +25,6 @@ input{
 input::placeholder{
     color: rgba(255,255,255,0.5); 
 }
-select{
-    outline: none;
-}
 
 .numbers{
     width:8em;
@@ -47,5 +44,6 @@ select{
     border-radius: 5px;
     margin-left: 3px;
     color: rgba(255,255,255,0.7);
+    outline: none;
 }
 `
