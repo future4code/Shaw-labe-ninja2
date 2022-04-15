@@ -82,7 +82,7 @@ export default class JobCard extends React.Component {
 						</ImgContainer>
 					</FrontSide>
 					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
-						<h3 style={{ color:' #FFE600', fontSize:'24px'}}>{this.props.title}</h3>
+						<h3 style={{ color:' #FFE600', fontSize:'24px',textAlign: 'center'}}>{this.props.title}</h3>
 						<p style={{ textAlign: 'center'}}>{this.props.description}</p>
 						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>
