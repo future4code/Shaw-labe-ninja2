@@ -17,6 +17,7 @@
     "jss": "^10.1.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-flippy": "^1.1.0",
     "react-jss": "8.0.0",
     "react-scripts": "^3.4.3",
     "react-select": "^5.3.0",
