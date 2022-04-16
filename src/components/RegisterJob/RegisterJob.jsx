@@ -20,8 +20,7 @@ export default class RegisterJob extends React.Component {
         inputDescription:'',
         inputDueDate: '',
         inputPrice:'',
-        // inputImage:'',
-        inputPaymentMethods:'',
+        inputImage:'',
         selectedOption:[],
 
     }
@@ -37,18 +36,12 @@ export default class RegisterJob extends React.Component {
 	onChangeInputPrice = (event) => {
 		this.setState({ inputPrice: event.target.value })
 	}
-	onChangeInputPaymentMethods = (event) => {
-
-		this.setState({ inputPaymentMethods: event.target.value })
-	}
 	onChangeInputImage = (event) => {
 
 		this.setState({ inputImage: event.target.value })
 	}
 	onChangeSelectedOption = selectedOption => {
 		this.setState({ selectedOption });
-
-		this.setState({ paymentMethods: options })
 	};
 	addJob = () => {
 		const options = this.state.selectedOption.map((option) => {
@@ -62,7 +55,7 @@ export default class RegisterJob extends React.Component {
 			inputDueDate: '',
 			inputPrice:'',
 			inputImage:'',
-			inputPaymentMethods:''
+			selectedOption:[]
 		})
 
 		this.props.handleModal()
