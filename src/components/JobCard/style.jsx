@@ -41,6 +41,12 @@ export const Card = styled.div`
         }
         opacity: 1;
     }
+
+    #disabled-button {
+        color: ${COLORS.primary};
+        font-size: 1.2rem; 
+        font-weight: bolder; 
+    }
 `
 export const Img = styled.img`
     border-radius: 10px;

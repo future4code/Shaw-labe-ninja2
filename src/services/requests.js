@@ -124,11 +124,12 @@ export const createJob = (title, description, price, paymentOptions, dueDate, im
 // AO SER CHAMADO RECEBER PARÂMETROS: 
 // id : id do job     
 //--------------------------------------------------------------------
-export const deleteJob = (id) => {
-
+export const deleteJob = (id, getProduct, setTrue) => {
+setTrue()
     axios.delete(`${BASE_URL}/jobs/${id}`, header)
         .then((response) => {
-            toast.success(" Job deletado com sucesso")
+            toast.success("Obrigado por comprar conosco!")
+            getAllJobs(getProduct,setTrue)
         }).catch((err) => toast.error(`${err.response.data.message}`))
 }
 
@@ -152,9 +153,24 @@ export const updateJob = async (id, jobStatus, saveData, setTrue) => {
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
         getAllJobs(saveData, setTrue)
+        toast.info("Serviço adicionado ao carrinho!")
     } catch (err) {
         toast.error(`${err.response.data.message}`)
     }
 }
 
 //=======================================================================
+
+export const removeJobFromCart = async (id, saveData) => {
+
+    let body = {
+        "taken": false
+    }
+    try {
+        const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
+        getAllJobs(saveData, () => {})
+        toast.info("Item removido do carrinho!")
+    } catch (err) {
+        toast.error(`${err.response.data.message}`)
+    }
+}

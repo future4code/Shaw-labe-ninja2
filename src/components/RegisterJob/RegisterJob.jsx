@@ -70,6 +70,10 @@ export default class RegisterJob extends React.Component {
 	render() {
 
 		if (!this.props.showModal) {
+			if(this.state.selectedOption.length > 0) 
+			{
+				this.setState({selectedOption: []})
+			}
 			return <span></span>
 		} else {
 			return (

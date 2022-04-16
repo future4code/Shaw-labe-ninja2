@@ -114,6 +114,7 @@ export default class HomeScreenMain extends React.Component {
 			<HomeScreenMainContainer>
 				<Promotions 
 				state = {this.state}
+				cardClicked={(id, takenStatus) => this.processCardClick(id, takenStatus)}
 				/>
 				
 				<Filter

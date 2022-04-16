@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainCardContainer, CardStyle } from './style';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteJob } from '../../services/requests'
+import { removeJobFromCart } from '../../services/requests'
 
 export default class ProductOnCartCard extends React.Component {
 
@@ -20,7 +20,7 @@ export default class ProductOnCartCard extends React.Component {
 					</div>
 
 					<div>
-						<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => deleteJob(this.props.keyCard)} />
+						<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => this.props.removeItem(this.props.keyCard)} />
 					</div>
 				</CardStyle>
 			</MainCardContainer>
