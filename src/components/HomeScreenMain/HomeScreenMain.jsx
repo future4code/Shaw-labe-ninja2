@@ -112,7 +112,9 @@ export default class HomeScreenMain extends React.Component {
 
 		return (
 			<HomeScreenMainContainer>
-				<Promotions />
+				<Promotions 
+				state = {this.state}
+				/>
 				
 				<Filter
 					updateQuery={this.updateQuery}
