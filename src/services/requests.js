@@ -167,8 +167,8 @@ export const removeJobFromCart = async (id, saveData) => {
     }
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
-        getAllJobs(saveData)
-        toast.info("Serviço adicionado ao carrinho!")
+        getAllJobs(saveData, () => {})
+        toast.info("Item removido do carrinho!")
     } catch (err) {
         toast.error(`${err.response.data.message}`)
     }

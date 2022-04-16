@@ -20,7 +20,7 @@ export default class ProductOnCartCard extends React.Component {
 					</div>
 
 					<div>
-						<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => deleteJob(this.props.keyCard)} />
+						<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => this.props.removeItem(this.props.keyCard)} />
 					</div>
 				</CardStyle>
 			</MainCardContainer>
