@@ -1,10 +1,7 @@
 import React from 'react';
-import { Button, Main } from './style';
-import { getAllJobs } from '../../services/requests';
+import { Main } from './style';
+import { getAllJobs, updateJob } from '../../services/requests';
 import ProductOnCartCard from '../ProductOnCartCard/ProductOnCartCard';
-
-
-
 
 export default class CartMainContainer extends React.Component {
 
@@ -19,14 +16,20 @@ export default class CartMainContainer extends React.Component {
 					"",
 				],
 				dueDate: "",
-				taken: false
+				taken: false,
+				loading: true
 			}
-		]
+		], cartProducts: []
 	}
 
 	//Mostra produtos no carrinho quando é rodado a primeira vez.
 	componentDidMount() {
-		getAllJobs(this.getProduct)
+		getAllJobs(this.getProduct, this.setTrue)
+		this.deliverProduct()
+	}
+
+	componentDidUpdate = (prevProps, prevState) => {
+		if (prevState.products !== this.state.products) { this.deliverProduct() }
 	}
 
 	//Pega os produtos salvos na API e guarda no state.
@@ -34,34 +37,41 @@ export default class CartMainContainer extends React.Component {
 		this.setState({ products: product })
 	}
 
+	setTrue = () => {
+		this.setState({ loading: true })
+	}
+
 	onClickBuy = () => {
-		this.setState({ product: "" })
+		for (const elemento of this.state.cartProducts) {
+			updateJob(elemento.id, false, this.getProduct, this.setTrue)
+		}
+	}
+
+	deliverProduct = () => {
+		//Mapeia os produtos e filtra apenas os com valores de 'taken = true'
+		let prodOnCart = this.state.products.map((product) => {
+			return product
+		}).filter((product) => {
+			return (product.taken === true)
+
+		});
+		this.setState({ cartProducts: prodOnCart })
 	}
 
 	render() {
 
-		//Mapeia os produtos e filtra apenas os com valores de 'taken = true'
-		let productsList = []
-
 		if (this.state.products.length > 0) {
-			productsList = this.state.products.map((product) => {
-				return product
-			}).filter((product) => {
-				return (product.taken === true)
-			});
-			}
-		//Renderiza informações dos produtos selecionados no carrinho.
-			let renderCards = productsList.map(() => {
-				return <ProductOnCartCard/>
+			//Renderiza informações dos produtos selecionados no carrinho.
+			let renderCards = this.state.cartProducts.map((product) => {
+				return <ProductOnCartCard key={product.id} />
 			})
 
-		return (
-			<Main>
-				{renderCards}
-				<button onClick={this.onClickBuy} >Concluir Compra</button>
-			</Main>
-		)
-
+			return (
+				<Main>
+					{renderCards}
+					<button onClick={this.onClickBuy} >Concluir Compra</button>
+				</Main>
+			)
+		}
 	}
-
 }
