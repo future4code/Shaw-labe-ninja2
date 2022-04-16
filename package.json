@@ -21,6 +21,7 @@
     "react-jss": "8.0.0",
     "react-scripts": "^3.4.3",
     "react-select": "^5.3.0",
+    "react-toastify": "^8.2.0",
     "styled-components": "^5.1.0"
   },
   "scripts": {
