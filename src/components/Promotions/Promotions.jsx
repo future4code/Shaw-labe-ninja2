@@ -25,7 +25,7 @@ export default class Promotions extends React.Component {
 						dueDate = "2065-02-10T00:00:00.000Z"
 						price = "5000"
 						paymentMethods = {["Débito", "Pix"]}
-						taken = "false"
+						taken = {false}
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>
 						<JobCard
@@ -37,7 +37,7 @@ export default class Promotions extends React.Component {
 						dueDate = "2033-04-22T00:00:00.000Z"
 						price = "5788"
 						paymentMethods = {["Débito", "Pix", "Paypal", "Boleto", "Crédito"]}
-						taken = "false"
+						taken =  {false}
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>
 						<JobCard
@@ -49,7 +49,7 @@ export default class Promotions extends React.Component {
 						dueDate = "2033-02-20T00:00:00.000Z"
 						price = "3000"
 						paymentMethods = {["Débito", "Pix"]}
-						taken = "false"
+						taken = {false}
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>
 					</PromotionsBox>
