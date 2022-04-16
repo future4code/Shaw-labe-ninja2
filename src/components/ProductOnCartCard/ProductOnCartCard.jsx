@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainCardContainer, CardStyle } from './style';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deleteJob } from '../../services/requests'
+import { removeJobFromCart } from '../../services/requests'
 
 export default class ProductOnCartCard extends React.Component {
 

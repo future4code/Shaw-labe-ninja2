@@ -152,9 +152,24 @@ export const updateJob = async (id, jobStatus, saveData, setTrue) => {
     try {
         const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
         getAllJobs(saveData, setTrue)
+        toast.info("Serviço adicionado ao carrinho!")
     } catch (err) {
         toast.error(`${err.response.data.message}`)
     }
 }
 
 //=======================================================================
+
+export const removeJobFromCart = async (id, saveData) => {
+
+    let body = {
+        "taken": false
+    }
+    try {
+        const response = await axios.post(`${BASE_URL}/jobs/${id}`, body, header)
+        getAllJobs(saveData)
+        toast.info("Serviço adicionado ao carrinho!")
+    } catch (err) {
+        toast.error(`${err.response.data.message}`)
+    }
+}
