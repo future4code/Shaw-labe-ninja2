@@ -5,36 +5,23 @@ import { deleteJob } from '../../services/requests'
 
 export default class ProductOnCartCard extends React.Component {
 
-	state = {
-		jobsTaken: []
-	}
-
-	/* componentDidMount() {
-		deleteJob(this.jobsTaken.id)
-	} */
-
-	componentDidMount() {
-		this.updateState()
-	}
-
-	removeCardCat = (id) => {
-		deleteJob(this.state.jobsTaken.id)
-	}
-
-	updateState = (props) => {
-		this.setState({ jobsTaken: props })
-	}
-
 	render() {
-
-		/* let cardComponents = this.props.jobsTaken.map((item) => {
-			return <CardStyle key={item.id} title={item.title} price={item.price} />
-		}) */
 
 		return (
 			<MainCardContainer>
 				<CardStyle>
-					<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => this.removeCardCat()} />
+					<div>
+						<h1>{this.props.titleCard}</h1>
+					</div>
+
+					<div>
+						<h2>Preço R$: {this.props.priceCard.toFixed(2)}</h2>
+						<h3>Forma de Pagamento: {this.props.paymentCard}</h3>
+					</div>
+
+					<div>
+						<DeleteIcon sx={{ fontSize: '35px', cursor: 'pointer' }} onClick={() => deleteJob(this.props.keyCard)} />
+					</div>
 				</CardStyle>
 			</MainCardContainer>
 		)
