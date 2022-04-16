@@ -124,11 +124,12 @@ export const createJob = (title, description, price, paymentOptions, dueDate, im
 // AO SER CHAMADO RECEBER PARÂMETROS: 
 // id : id do job     
 //--------------------------------------------------------------------
-export const deleteJob = (id) => {
-
+export const deleteJob = (id, getProduct, setTrue) => {
+setTrue()
     axios.delete(`${BASE_URL}/jobs/${id}`, header)
         .then((response) => {
-            toast.success(" Job deletado com sucesso")
+            toast.success("Obrigado por comprar conosco!")
+            getAllJobs(getProduct,setTrue)
         }).catch((err) => toast.error(`${err.response.data.message}`))
 }
 
