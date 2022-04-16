@@ -89,7 +89,7 @@ export default class JobCard extends React.Component {
 						<p>R$ {this.props.price},00</p>
 						<p>Pagamento: <SelectPay>{pagamentos}</SelectPay></p>
 						{this.props.taken ?
-							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small" > No Carrinho!</Button>
+							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small" disabled id = "disabled-button" > No Carrinho!</Button>
 							:
 							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small">Contratar</Button>
 						}
