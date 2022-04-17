@@ -81,16 +81,16 @@ export default class JobCard extends React.Component {
 				>
 					<FrontSide style={{  backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 100%, #000000 50%)', padding:'8px' ,height:'100%'}} animationDuration={1000}>
 						
-						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#FFE600'}}>{this.props.title}</h3>
+						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#FFE600', textOverflow:'ellipsis', maxWidth:'100%', maxHeight: '1.5em'}}>{this.props.title}</h3>
 						<ImgContainer>
 							<Img style={{border:'1px solid #FFE600'}} src={this.props.image} alt={''} />
 							<p style={{color:'white', fontSize:'1.2em'}}>R$ {this.props.price},00</p>
 						</ImgContainer>
 					
 					</FrontSide>
-					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
-						<h3 style={{ color:' #FFE600', fontSize:'24px'}}>{this.props.title}</h3>
-						<p style={{ textAlign: 'center'}}>{this.props.description}</p>
+					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
+						<h3 style={{ color:' #FFE600', fontSize:'24px', textAlign:'center'}}>{this.props.title}</h3>
+						<p style={{ textAlign: 'center', fontSize:'1.2rem'}}>{this.props.description}</p>
 						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>
 						<p>R$ {this.props.price},00</p>
@@ -103,14 +103,6 @@ export default class JobCard extends React.Component {
 						}
 					</BackSide>
 				</Flippy>
-				{/* // <Card> */}
-
-				{/* // 	<h3>{this.props.title}</h3>
-			// 	<p style={{textAlign:'center'}}>{this.props.description}</p>
-			// 	<p>{date}</p>
-			// 	<p>{this.props.price} R$</p>
-			// 	<p>Pagamento: <select>{pagamentos}</select></p>
-			// 	<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant = "contained" >{this.props.taken ?  'No Carrinho!' : 'Contratar'}</Button> */}
 			</Card>
 		)
 

@@ -40,6 +40,7 @@ Design Proposal:
 - Área do carrinho, o usuário consegue visualizar todos os itens do mesmo, podendo retirar algum item específico ou contratar todos os serviços adicionados ao carrinho.
 - Tela de loading sempre que estiver carregando alguma requisição.
 - Não permitir que um mesmo serviço seja adicionado ao carrinho mais de uma vez.
+- Ao adicionar um item no carrinho é adicionada apenas a opção de pagamento selecionada.
 
 ## ❌ O que não funciona
 
@@ -57,9 +58,10 @@ Design Proposal:
 | :---: | :---: | :---: | :---: | :---: |
 
 ## 📷 Imagens
-
+![image](https://user-images.githubusercontent.com/50851374/163732280-dddeaa54-2773-477b-87e2-7807dd84d382.png)
 ![image](https://user-images.githubusercontent.com/50851374/163658518-28d9ce08-1cc3-436a-b838-cebdca0f01f4.png)
 ![image](https://user-images.githubusercontent.com/50851374/163658496-5b4dd4ae-342c-4495-b5e1-6380e9db8b23.png)
+![image](https://user-images.githubusercontent.com/50851374/163732509-e07b4deb-7001-4f10-9d69-add85c6f4ddc.png)
 
 
 
