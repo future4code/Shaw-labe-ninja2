@@ -19,7 +19,9 @@ export default class Cart extends React.Component {
 				changePage = {this.props.changePage}
 				page= {"Cart"}
 				/>
-				<CartMainContainer/> 
+				<CartMainContainer
+					paymentMethodo = {this.props.paymentMethodo}
+				/> 
 				<Footer/>
 			</CartStyle>
 		)

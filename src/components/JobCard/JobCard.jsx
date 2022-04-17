@@ -16,7 +16,8 @@ export default class JobCard extends React.Component {
 	state = {
 		job: [],
 		taken: this.props.taken,
-		rating: Math.floor((Math.random() * 5) + 2)
+		rating: Math.floor((Math.random() * 5) + 2),
+		selectMethod:this.props.paymentMethods[0]
 	}
 
 	saveJob = (job) => {
@@ -34,6 +35,10 @@ export default class JobCard extends React.Component {
 		}
 	}
 
+
+	handleSelect = event => {
+		this.setState({ selectMethod:event.target.value });
+	};
 
 	//receive id as props
 
@@ -87,11 +92,12 @@ export default class JobCard extends React.Component {
 						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>
 						<p>R$ {this.props.price},00</p>
-						<p>Pagamento: <SelectPay>{pagamentos}</SelectPay></p>
+						<p>Pagamento:
+						<SelectPay value={this.state.selectMethod} onChange={this.handleSelect}>{pagamentos}</SelectPay></p>
 						{this.props.taken ?
-							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small" disabled id = "disabled-button" > No Carrinho!</Button>
+							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken,this.state.selectMethod)} variant="contained" size="small" disabled id = "disabled-button" > No Carrinho!</Button>
 							:
-							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken)} variant="contained" size="small">Contratar</Button>
+							<Button onClick={() => this.props.processCardClick(this.props.id, !this.props.taken, this.state.selectMethod)} variant="contained" size="small">Contratar</Button>
 						}
 					</BackSide>
 				</Flippy>

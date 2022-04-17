@@ -30,6 +30,7 @@ export default class HomeScreen extends React.Component {
                 <HomeScreenMain
 				handleModal = {this.handleModal}
 				showModal = {this.state.showModal}
+				setPaymentMethodoCart = {this.props.setPaymentMethodoCart}
 				/> 
 				<Footer/>
 			</div>

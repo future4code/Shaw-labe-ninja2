@@ -15,7 +15,6 @@ export default class CardContainer extends React.Component {
 
 		let displayJobs = this.props.jobs.map((job) => {
 			const data = job.description.split('<>')
-			console.log(data)
 			return (<JobCard
 				key={job.id}
 				id={job.id}
@@ -26,7 +25,7 @@ export default class CardContainer extends React.Component {
 				price={job.price}
 				paymentMethods={job.paymentMethods}
 				taken={job.taken}
-				processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
+				processCardClick={(id, takenStatus, payMeth) => this.props.cardClicked(id, takenStatus, payMeth)}
 			/>)
 		})
 
