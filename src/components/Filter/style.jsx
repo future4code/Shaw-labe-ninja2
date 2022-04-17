@@ -7,6 +7,7 @@ background-color: rgba(0,0,0,0.9);
 margin-top: 5%; 
 display: flex;
 align-items: center;
+justify-content: center;
 
     
 

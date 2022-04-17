@@ -17,14 +17,14 @@ export default class Promotions extends React.Component {
 					<Legend >Promoções do dia <img src={OFF}/></Legend>
 					<PromotionsBox>
 						<JobCard
-						key = "7656561d-0407-4f0d-9da6-1af92425c473"
-						id = "7656561d-0407-4f0d-9da6-1af92425c473"
-						title = "Advogado"
-						image = "https://tse4.mm.bing.net/th?id=OIP.DTRSr-uFNZ1hfVGnxn1zBgHaEz&pid=Api&P=0&w=266&h=172"
-						description = "Melhor advogado do País, formado em Harvard"
-						dueDate = "2065-02-10T00:00:00.000Z"
-						price = "5000"
-						paymentMethods = {["Débito", "Pix"]}
+						key = "3ed283bf-e224-42b8-a351-62053ba0b100"
+						id = "3ed283bf-e224-42b8-a351-62053ba0b100"
+						title = "Pintor Profissional"
+						image = "https://www.politintas.com.br/wp-content/uploads/2016/11/dicas-contratar-bom-pintor.jpg"
+						description = "Pinto na sala, pinto na cozinha, pinto em tudo que é lugar!"
+						dueDate = "2023-06-16T00:00:00.000Z"
+						price = "1200"
+						paymentMethods = {["Boleto", "Paypal"]}
 						taken = {false}
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>
@@ -41,14 +41,14 @@ export default class Promotions extends React.Component {
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>
 						<JobCard
-						key = "1e3c652c-732b-487c-b8ce-a12a12399797"
-						id = "1e3c652c-732b-487c-b8ce-a12a12399797"
-						title = "Desenvolvedor Full Stack"
-						description = "Formado na Labenu, desenvolvo os melhores sites para sua empresa."
-						image = "https://tse4.mm.bing.net/th?id=OIP.fxCp61-TvmLvmnM5JN0xqQHaEl&pid=Api&P=0&w=271&h=168"
-						dueDate = "2033-02-20T00:00:00.000Z"
-						price = "3000"
-						paymentMethods = {["Débito", "Pix"]}
+						key = "6abe2204-fd49-452f-92f9-18ce47669f6b"
+						id = "6abe2204-fd49-452f-92f9-18ce47669f6b"
+						title = "Ganhe dinheiro em casa"
+						description = "Ganhe dinheiro de forma fácil com apenas seu celular"
+						image = "https://tse1.mm.bing.net/th?id=OIP.AOF-pkk5sGllD4SLg3GHJwHaEO&pid=Api&P=0&w=306&h=174"
+						dueDate = "2022-04-20T00:00:00.000Z"
+						price = "197"
+						paymentMethods = {['Débito', 'Pix', 'Paypal', 'Boleto', 'Crédito']}
 						taken = {false}
 						processCardClick={(id, takenStatus) => this.props.cardClicked(id, takenStatus)}
 						/>

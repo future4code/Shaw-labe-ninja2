@@ -75,11 +75,13 @@ export default class JobCard extends React.Component {
 
 				>
 					<FrontSide style={{  backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 100%, #000000 50%)', padding:'8px' ,height:'100%'}} animationDuration={1000}>
+						
 						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#FFE600'}}>{this.props.title}</h3>
 						<ImgContainer>
 							<Img style={{border:'1px solid #FFE600'}} src={this.props.image} alt={''} />
 							<p style={{color:'white', fontSize:'1.2em'}}>R$ {this.props.price},00</p>
 						</ImgContainer>
+					
 					</FrontSide>
 					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
 						<h3 style={{ color:' #FFE600', fontSize:'24px'}}>{this.props.title}</h3>
