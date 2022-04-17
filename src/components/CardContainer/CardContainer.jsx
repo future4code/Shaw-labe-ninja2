@@ -15,7 +15,8 @@ export default class CardContainer extends React.Component {
 
 		let displayJobs = this.props.jobs.map((job) => {
 			const data = job.description.split('<>')
-			console.log(data)
+			//console.log(data)
+			console.log(job)
 			return (<JobCard
 				key={job.id}
 				id={job.id}

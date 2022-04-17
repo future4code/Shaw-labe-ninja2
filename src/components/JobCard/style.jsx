@@ -6,11 +6,11 @@ export const Card = styled.div`
     
     display: flex; 
     flex-direction:column; 
-    min-width: 22vw; 
-    max-width: 22vw; 
+    min-width: 200px; 
+    width: 22vw; 
 
     min-height: 35vh; 
-    max-height: 35vh; 
+    height: 35vh; 
     margin: 2% 1%;
     padding: 1%;
 
@@ -47,16 +47,25 @@ export const Card = styled.div`
         font-size: 1.2rem; 
         font-weight: bolder; 
     }
+
+   
 `
 export const Img = styled.img`
     border-radius: 10px;
-    height: 14rem;
-    width:19rem;
+    margin-bottom: 1%; 
+    /* height: 14rem;
+    width:19rem; */
+    height: 25vh;
+    min-width: 180px; 
+    width: 20vw;
+
 `
 export const ImgContainer = styled.div`
     display: flex;
+    flex-direction: column; 
     align-items: center;
     justify-content: space-around;
+   
 `
 
 export const SelectPay = styled.select`
@@ -69,3 +78,5 @@ export const SelectPay = styled.select`
     outline: none;
 
 `
+
+
