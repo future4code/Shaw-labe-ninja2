@@ -20,17 +20,26 @@ export default class CartMainContainer extends React.Component {
 				taken: false,
 				loading: true
 			}
-		], cartProducts: []
+		], 
+		cartProducts: [],
+		payMeth : []
 	}
 
 	//Mostra produtos no carrinho quando é rodado a primeira vez.
 	componentDidMount() {
 		getAllJobs(this.getProduct, this.setTrue)
 		this.deliverProduct()
+		const payMethCart = JSON.parse(localStorage.getItem("payMeth"));
+		payMethCart && this.setState({ payMeth: payMethCart })
 	}
 
 	componentDidUpdate = (prevProps, prevState) => {
 		if (prevState.products !== this.state.products) { this.deliverProduct() }
+
+		if (prevProps.paymentMethodo !== this.state.payMeth && this.props.paymentMethodo.length>0) {
+			localStorage.setItem("payMeth", JSON.stringify(this.props.paymentMethodo));
+			this.setState({payMeth:this.props.paymentMethodo}) 
+		}
 	}
 
 	//Pega os produtos salvos na API e guarda no state.
@@ -68,16 +77,24 @@ export default class CartMainContainer extends React.Component {
 
 	render() {
 
+
+
 		if (this.state.products.length > 0) {
 			//Renderiza informações dos produtos selecionados no carrinho.
 			let renderCards = this.state.cartProducts.map((product) => {
+				let payMethCart
+				let findMeth = this.state.payMeth.filter(payMeth =>{
+					console.log('pi',product.id)
+					if(payMeth.id === product.id){payMethCart = payMeth.paymentMethodo}
+					return payMeth.id === product.id
+				})
 				return <ProductOnCartCard 
 										key={product.id}
 										keyCard={product.id} 
 										  titleCard={product.title} 
 										  descCard={product.description} 
 										  priceCard={product.price} 
-										  paymentCard={product.paymentMethods} 
+										  paymentCard={payMethCart} 
 										  removeItem = {(id) => this.removeProduct(id)}
 										  />
 			})

@@ -42,10 +42,10 @@ export default class HomeScreenMain extends React.Component {
 	}
 
 	//FUNCAO DE PROCESSAR CARD CLICK, PARA MUDAR BOTAO DE CARD NO CARRINHO OU N
-	processCardClick = (id, takenStatus) => {
+	processCardClick = (id, takenStatus, payMeth) => {
 		updateJob(id, takenStatus, this.saveData, this.setTrue);
 		this.setState({ clicked: !this.state.clicked })
-
+		this.props.setPaymentMethodoCart(id, payMeth)
 	}
 
 	updateQuery = (event) => {
@@ -131,7 +131,7 @@ export default class HomeScreenMain extends React.Component {
 				/>
 				<CardContainer
 					jobs={jobsFiltered}
-					cardClicked={(id, takenStatus) => this.processCardClick(id, takenStatus)}
+					cardClicked={(id, takenStatus, payMeth) => this.processCardClick(id, takenStatus, payMeth)}
 					loading = {this.state.loading}
 				/>
 				{/* Só será mostrado quando clicado no botão que está no header */}
