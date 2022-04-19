@@ -1,4 +1,4 @@
-# 📄  LabeNinjas: Construção de um marketplace
+# 📄  LabeNinjas: Construção de um marketplace bacana
 
 ## Design Proposal LabeNinjas 
 
