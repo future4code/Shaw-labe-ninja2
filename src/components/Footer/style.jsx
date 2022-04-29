@@ -44,4 +44,7 @@ export const IconsContainer = styled.div`
     img{
         width: 80%;
     }
+    img:hover{
+        width: 84%;
+    }
 `

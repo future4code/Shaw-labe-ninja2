@@ -79,17 +79,16 @@ export default class JobCard extends React.Component {
 					style={{ width: '22vw', height: '22vw'}} /// these are optional style, it is not necessary
 
 				>
-					<FrontSide style={{  backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 100%, #000000 50%)', padding:'8px' ,height:'100%'}} animationDuration={1000}>
+					<FrontSide style={{  backgroundcolor: '#3e3d3d', padding:'8px' ,height:'100%'}} animationDuration={1000}>
 						
-						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#FFE600', textOverflow:'ellipsis', maxWidth:'100%', maxHeight: '1.5em'}}>{this.props.title}</h3>
+						<h3 style={{ fontSize:'1.5em', textAlign:'center', marginBottom:'10px',color:'#3e3d3d', textOverflow:'ellipsis', maxWidth:'100%', maxHeight: '1.5em'}}>{this.props.title}</h3>
 						<ImgContainer>
-							<Img style={{border:'1px solid #FFE600'}} src={this.props.image} alt={''} />
-							<p style={{color:'white', fontSize:'1.2em'}}>R$ {this.props.price},00</p>
+							<Img style={{border:'1px solid #3e3d3d'}} src={this.props.image} alt={''} />
+							<p style={{color:'black', fontSize:'1.2em'}}>R$ {this.props.price},00</p>
 						</ImgContainer>
 					
 					</FrontSide>
-					<BackSide style={{ backgroundImage: 'radial-gradient(circle at 27.95% 27.95%, #4c4732 0, #000104 50%, #000000 100%)', boxShadow: '2px 2px 10px black', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
-						<h3 style={{ color:' #FFE600', fontSize:'24px', textAlign:'center'}}>{this.props.title}</h3>
+					<BackSide style={{ backgroundcolor: '#3e3d3d', boxShadow: '2px 2px 10px black', color: '#3e3d3d', display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center', gap: '2px',padding:'8px' }} animationDuration={1000}>
 						<p style={{ textAlign: 'center', fontSize:'1.2rem'}}>{this.props.description}</p>
 						<Rating name="read-only" value={this.state.rating} readOnly />
 						<p>{date}</p>

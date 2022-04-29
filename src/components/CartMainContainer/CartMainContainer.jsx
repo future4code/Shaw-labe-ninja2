@@ -108,6 +108,12 @@ export default class CartMainContainer extends React.Component {
 			return (
 				<Main>
 					{renderCards.length > 0 ? renderCards : <RemoveShoppingCartIcon sx={{ fontSize: '490px' }} />}
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
+					<br/>
 					<span>Total: R$ {showTotalValue.toFixed(2)}</span>
 					<button onClick={this.onClickBuy} >Concluir Compra</button>
 				</Main>

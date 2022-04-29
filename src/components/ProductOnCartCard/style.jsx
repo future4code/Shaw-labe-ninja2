@@ -24,8 +24,7 @@ justify-content: space-evenly;
 min-height: 18.5vh;
 
 box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
-border: solid 2px transparent;     
-background-image: linear-gradient(white, white), linear-gradient(45deg,${COLORS.primary},rgb(124, 118, 62),black);     
+border: solid 2px lightgrey;     
 background-origin: border-box;     
 background-clip: content-box, border-box;
 
